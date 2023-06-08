@@ -1,4 +1,4 @@
-# java-memshel-generator
+# java-memshell-generator
 
 
 ## 0x01 简介
@@ -9,6 +9,7 @@ jMG (Java Memshell Generator) 是一款支持高度自定义的 Java 内存马�
 ## 0x02 中间件/框架覆盖情况
 
 - 中间件
+
 
 |                 | listener           | filter          | 
 | --------------- | -----------------  | --------------- |
@@ -28,15 +29,17 @@ jMG (Java Memshell Generator) 是一款支持高度自定义的 Java 内存马�
 | websphere 7.x   | ✅                 | ✅               |                                  
 | websphere 8.5.5 | ✅                 | ✅               |                                  
 | websphere 9.0.0 | ✅                 | ✅               |                                  
-| undertow        | ✅                 | ✅               |                                 
-| glassFish       | ✅                 | ✅               |                                 
+| undertow 1.4.26 | ✅                 | ✅               |                                 
+| glassfish 5.0.0 | ✅                 | ✅               |                                 
 
 
 - 框架
 
-|                 | interceptor       |  
-| --------------- | ----------------- | 
-| spring mvc      | ✅                 | 
+
+|                 | interceptor       |  action           |    
+| --------------- | ----------------- | -----------------  | 
+| spring mvc      | ✅                |                    | 
+| strust2          |                   |                    | 
 
 
 ## 0x03 演示
