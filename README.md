@@ -47,6 +47,13 @@ jMG (Java Memshell Generator) 是一款支持高度自定义的 Java 内存马�
 <img width="1174" alt="image" src="https://github.com/pen4uin/java-memshell-generator/assets/55024146/1b07d338-5cd9-4035-8566-be2d4ae914d4">
 
 
+## 0x04 致谢
+
+QAX-SgLab
+
+<img src="./images/sglab.svg" width=300 alt="SgLab">
+
+
 ## 0x04 参考
 
 ```
