@@ -49,7 +49,7 @@ jMG (Java Memshell Generator) 是一款支持高度自定义的 Java 内存马�
 
 ## 0x04 致谢
 
-QAX-SgLab
+SGLAB of Legendsec at Qi'anxin Group
 
 <img src="./images/sglab.svg" width=300 alt="SgLab">
 
