@@ -21,15 +21,7 @@
 ![](./img/gui.png)
 
 
-## 0x03 Contributor
-
-```text
-奇安信观星实验室(SGLAB of Legendsec at Qi'anxin Group)
-```
-
-<img src="./img/sglab.svg" width=300 alt="SgLab">
-
-## 0x04 Reference
+## 0x03 Reference
 
 使用手册
 - [jMG v1.0.4](https://mp.weixin.qq.com/s/oAiGWY9ABhn2o148snA_sg)
@@ -37,8 +29,10 @@
 - [jMG v1.0.6](https://mp.weixin.qq.com/s/0ZzH35aRUPelq8nwilMQiA)
 
 参考项目
-- https://github.com/woodpecker-appstore/jexpr-encoder-utils
-- https://github.com/feihong-cs/memShell
-- https://github.com/su18/MemoryShell
-- https://github.com/BeichenDream/GodzillaMemoryShellProject
-- https://github.com/whwlsfb/cve-2022-22947-godzilla-memshell
+```
+https://github.com/woodpecker-appstore/jexpr-encoder-utils
+https://github.com/feihong-cs/memShell
+https://github.com/su18/MemoryShell
+https://github.com/BeichenDream/GodzillaMemoryShellProject
+https://github.com/whwlsfb/cve-2022-22947-godzilla-memshell
+```
