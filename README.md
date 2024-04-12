@@ -27,6 +27,7 @@
 - [jMG v1.0.4](https://mp.weixin.qq.com/s/oAiGWY9ABhn2o148snA_sg)
 - [jMG v1.0.5](https://mp.weixin.qq.com/s/QjoRs_J5jVANrdEiiTtVtA)
 - [jMG v1.0.6](https://mp.weixin.qq.com/s/0ZzH35aRUPelq8nwilMQiA)
+- [jMG v1.0.8](https://mp.weixin.qq.com/s/HkceemQBtKJeWMBrMvUeXA)
 
 参考项目
 ```
