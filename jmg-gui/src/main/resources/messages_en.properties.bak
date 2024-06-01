@@ -1,0 +1,14 @@
+format.text=Output Format
+generate.text=Generate
+headerName.text=Request Header Key
+headerValue.text=Request Header Value
+injectorClsName.text=Injector Class Name
+key.text=Key
+pass.text=Password
+server.text=Server Type
+shell.text=Shell Type
+shellClsName.text=Shell Class Name
+tool.text=Tool Type
+uri.text=Request URI
+gadget.text=Enable Gadget Wrapping
+expr.text=Enable Expr Wrapping

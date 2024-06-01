@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="jmg.gui.form.jMGForm">
+  <grid id="27dc6" binding="jMGPanel" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="863" height="665"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="3afd3" binding="TopPanel" layout-manager="GridLayoutManager" row-count="1" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="c4be0" class="javax.swing.JLabel" binding="toolLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="tool.text"/>
+            </properties>
+          </component>
+          <component id="b6735" class="javax.swing.JLabel" binding="formatLabel">
+            <constraints>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="format.text"/>
+            </properties>
+          </component>
+          <component id="55e33" class="javax.swing.JLabel" binding="serverLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="server.text"/>
+            </properties>
+          </component>
+          <component id="50832" class="javax.swing.JLabel" binding="shellLabel">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="shell.text"/>
+            </properties>
+          </component>
+          <component id="9f7e2" class="javax.swing.JComboBox" binding="toolBox">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="139" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Behinder"/>
+                <item value="Godzilla"/>
+                <item value="AntSword"/>
+                <item value="Suo5"/>
+                <item value="NeoreGeorg"/>
+                <item value="Custom"/>
+              </model>
+            </properties>
+          </component>
+          <component id="4aed2" class="javax.swing.JComboBox" binding="serverBox">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="139" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Tomcat"/>
+                <item value="SpringMVC"/>
+                <item value="Weblogic"/>
+                <item value="Websphere"/>
+                <item value="Resin"/>
+                <item value="Undertow"/>
+                <item value="Jetty"/>
+                <item value="SpringWebFlux"/>
+              </model>
+            </properties>
+          </component>
+          <component id="427be" class="javax.swing.JComboBox" binding="shellBox">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Listener"/>
+                <item value="Filter"/>
+                <item value="Interceptor"/>
+                <item value="WFHandlerMethod"/>
+              </model>
+            </properties>
+          </component>
+          <component id="5feb" class="javax.swing.JComboBox" binding="formatBox">
+            <constraints>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <model>
+                <item value="BASE64"/>
+                <item value="BIGINTEGER"/>
+                <item value="BCEL"/>
+                <item value="CLASS"/>
+                <item value="JAR"/>
+                <item value="JS"/>
+                <item value="JSP"/>
+              </model>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="df5d3" binding="textScrollPane">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="360"/>
+            <preferred-size width="36" height="207"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2f007" class="javax.swing.JTextPane" binding="textPane">
+            <constraints/>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="3932" binding="MiddlePanel" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d00d4" class="javax.swing.JLabel" binding="keyLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="key.text"/>
+            </properties>
+          </component>
+          <component id="686ad" class="javax.swing.JLabel" binding="passLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="34" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="pass.text"/>
+            </properties>
+          </component>
+          <component id="f1c80" class="javax.swing.JLabel" binding="headerValueLabel">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="headerValue.text"/>
+            </properties>
+          </component>
+          <component id="ad3ef" class="javax.swing.JTextField" binding="uriText">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="/*"/>
+              <toolTipText value="可选，默认为 /*"/>
+            </properties>
+          </component>
+          <component id="feb40" class="javax.swing.JTextField" binding="headerValueText">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+          <component id="56266" class="javax.swing.JTextField" binding="keyText">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+          <component id="82af3" class="javax.swing.JLabel" binding="headerNameLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="headerName.text"/>
+            </properties>
+          </component>
+          <component id="5ae4e" class="javax.swing.JLabel" binding="uriLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="uri.text"/>
+            </properties>
+          </component>
+          <component id="e7770" class="javax.swing.JTextField" binding="headerNameText">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+          <component id="e2d0f" class="javax.swing.JTextField" binding="passText">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+          <component id="e461d" class="javax.swing.JLabel" binding="shellClsNameLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="shellClsName.text"/>
+            </properties>
+          </component>
+          <component id="cfea8" class="javax.swing.JLabel" binding="injectorClsNameLabel">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="injectorClsName.text"/>
+            </properties>
+          </component>
+          <component id="85281" class="javax.swing.JTextField" binding="injectorClsNameText">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+          <component id="f7207" class="javax.swing.JTextField" binding="shellClsNameText">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="可选，默认随机生成"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="a889a" class="javax.swing.JSeparator" binding="TopSep">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="9582c" class="javax.swing.JSeparator" binding="MiddleSep">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <grid id="ff8e2" binding="BottomPanel" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a29cd" class="javax.swing.JCheckBox" binding="enableGadget">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="gadget.text"/>
+              <toolTipText value="根据漏洞类型自动完成对类文件的封装，如继承类、实现接口、添加注解等"/>
+            </properties>
+          </component>
+          <component id="3c3cb" class="javax.swing.JComboBox" binding="gadgetTypeBox">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="JDK_AbstractTranslet"/>
+                <item value="SnakeYaml"/>
+                <item value="XALAN_AbstractTranslet"/>
+                <item value="FastjsonGroovy"/>
+              </model>
+            </properties>
+          </component>
+          <component id="dfe4d" class="javax.swing.JCheckBox" binding="enableExpr">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="expr.text"/>
+              <toolTipText value="根据语句类型自动生成相应内存马注入的表达式语句"/>
+            </properties>
+          </component>
+          <component id="aa87f" class="javax.swing.JComboBox" binding="exprBox">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="EL"/>
+                <item value="SpEL"/>
+                <item value="OGNL"/>
+                <item value="FreeMarker"/>
+                <item value="Velocity"/>
+                <item value="ScriptEngineManager(JS)"/>
+              </model>
+            </properties>
+          </component>
+          <component id="3a0da" class="javax.swing.JButton" binding="generateButton">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="messages" key="generate.text"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="61400" binding="TipPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <hspacer id="28a9f">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="da658" class="javax.swing.JLabel" binding="authorLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="请勿用于非法用途"/>
+            </properties>
+          </component>
+          <component id="c8061" class="javax.swing.JLabel" binding="noticeLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="by pen4uin"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

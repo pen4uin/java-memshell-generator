@@ -1,0 +1,14 @@
+format.text=输出格式
+generate.text=生成
+headerName.text=请求头键
+headerValue.text=请求头值
+injectorClsName.text=注入器类名
+key.text=密钥
+pass.text=密码
+server.text=中间件/框架
+shell.text=组件类型
+shellClsName.text=内存马类名
+tool.text=工具类型
+uri.text=请求路径
+gadget.text=专项漏洞封装
+expr.text=表达式语句封装
