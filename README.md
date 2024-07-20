@@ -47,10 +47,10 @@ java -jar ./jmg-gui/target/jmg-gui-1.0.8-jar-with-dependencies.jar
 
 ## 文档
 
-- [jMG v1.0.8](https://9ex.org/jmg-1-0-8/)
-- [jMG v1.0.6](https://9ex.org/jmg-1-0-6/)
-- [jMG v1.0.5](https://9ex.org/jmg-1-0-5/)
-- [jMG v1.0.4](https://9ex.org/jmg-1-0-4/)
+- [jMG v1.0.8](./jmg-docs/1.0.8/)
+- [jMG v1.0.6](./jmg-docs/1.0.6/)
+- [jMG v1.0.5](./jmg-docs/1.0.5/)
+- [jMG v1.0.4](./jmg-docs/1.0.4/)
 
 ## 致谢
 
@@ -62,4 +62,4 @@ java -jar ./jmg-gui/target/jmg-gui-1.0.8-jar-with-dependencies.jar
 
 ## 协议
 
-- 遵循 MIT 协议
+- MIT
