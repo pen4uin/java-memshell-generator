@@ -62,6 +62,6 @@ public class CtClassUtil {
     // snakeyaml loadJar 的利用需要实现 ScriptEngineFactory 接口
     public void applySnakeYamlScriptEngineFactory() throws Exception {
         config.setImplementsScriptEngineFactory(true);
-        JavassistUtil.addAnnotation(ctClass, "javax.script.ScriptEngineFactory");
+        JavassistUtil.implementInterface(ctClass, "javax.script.ScriptEngineFactory");
     }
 }
