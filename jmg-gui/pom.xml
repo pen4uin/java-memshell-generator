@@ -14,6 +14,12 @@
             <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
+        <!--
+        1、下载 jexpr-encoder-utils-0.2.2.jar
+            https://github.com/woodpecker-appstore/jexpr-encoder-utils/releases
+        2、添加到本地 Maven 仓库
+            mvn install:install-file -Dfile=jexpr-encoder-utils-0.2.2.jar -DgroupId=me.gv7.woodpecker -DartifactId=jexpr-encoder-utils -Dversion=0.2.2 -Dpackaging=jar
+        -->
         <dependency>
             <groupId>me.gv7.woodpecker</groupId>
             <artifactId>jexpr-encoder-utils</artifactId>
