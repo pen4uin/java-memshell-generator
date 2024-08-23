@@ -60,6 +60,7 @@ public class GodzillaGenerator implements IShellGenerator {
             ctClass.detach();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return bytes;
     }

@@ -33,6 +33,7 @@ public class CustomGenerator implements IShellGenerator {
             ctClass.detach();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
