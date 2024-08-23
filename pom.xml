@@ -16,7 +16,7 @@
         <module>jmg-neoregeorg</module>
         <module>jmg-suo5</module>
         <module>jmg-extender</module>
-<!--        <module>jmg-woodpecker</module>-->
+        <module>jmg-woodpecker</module>
 <!--        <module>jmg-cli</module>-->
 <!--        <module>jmg-sdk</module>-->
     </modules>
