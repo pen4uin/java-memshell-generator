@@ -4,7 +4,7 @@
     <parent>
         <groupId>jmg</groupId>
         <artifactId>java-memshell-generator</artifactId>
-        <version>${revision}</version>
+        <version>${project.build.version}</version>
     </parent>
     <artifactId>jmg-godzilla</artifactId>
 
@@ -13,7 +13,7 @@
         <dependency>
             <groupId>jmg</groupId>
             <artifactId>jmg-core</artifactId>
-            <version>${revision}</version>
+            <version>${project.build.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
