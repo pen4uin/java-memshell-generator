@@ -18,18 +18,22 @@ import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Manifest;
 
+// todo: 其他中间件
+
 public class JARAgentFormater implements IFormater {
     public byte[] transform(byte[] clazzbyte, AbstractConfig config) throws Exception {
         String className = TomcatAgentTransformer.class.getName();
         String simpleName = TomcatAgentTransformer.class.getSimpleName();
-        if (config.getServerType().equals(Constants.SERVER_TOMCAT)){
+        if (config.getServerType().equals(Constants.SERVER_TOMCAT)) {
             className = TomcatAgentTransformer.class.getName();
             simpleName = TomcatAgentTransformer.class.getSimpleName();
-        }
-        if (config.getServerType().equals(Constants.SERVER_SPRING_MVC)){
+        } else if (config.getServerType().equals(Constants.SERVER_SPRING_MVC)) {
             className = SpringMVCAgentTransformer.class.getName();
             simpleName = SpringMVCAgentTransformer.class.getSimpleName();
+        } else {
+            throw new RuntimeException(String.format("Java Agent 暂时只支持 %s、%s",Constants.SERVER_TOMCAT,Constants.SERVER_SPRING_MVC));
         }
+
         String classFileName = simpleName.replace('.', '/') + ".class";
         ClassPool pool = ClassPool.getDefault();
 //        Note: jar 包中的文件不能通过文件路径读取，需要通过流读取
@@ -53,7 +57,7 @@ public class JARAgentFormater implements IFormater {
 
             copyJarEntries(jar, tempJar);
 
-            addModifiedClassToJar(pool, className, simpleName, classFileName, tempJar, config.getPass(),CommonUtil.encodeBase64(clazzbyte));
+            addModifiedClassToJar(pool, className, simpleName, classFileName, tempJar, config.getPass(), CommonUtil.encodeBase64(clazzbyte));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,7 +90,7 @@ public class JARAgentFormater implements IFormater {
         }
     }
 
-    private void addModifiedClassToJar(ClassPool pool, String className, String simpleName, String classFileName, JarOutputStream tempJar,String injectFlag, String injectorCode) throws Exception {
+    private void addModifiedClassToJar(ClassPool pool, String className, String simpleName, String classFileName, JarOutputStream tempJar, String injectFlag, String injectorCode) throws Exception {
         CtClass ctClass = pool.get(className);
         ctClass.getClassFile().setVersionToJava5();
         ctClass.setName(simpleName);
