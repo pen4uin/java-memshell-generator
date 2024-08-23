@@ -41,7 +41,7 @@ public class ShellUtil {
         godzillaMap.put(Constants.SHELL_LISTENER, GodzillaListener.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_INTERCEPTOR, GodzillaInterceptor.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_WF_HANDLERMETHOD, GodzillaWebFluxHandlerMethod.class.getSimpleName());
-        toolMap.put("Godzilla", godzillaMap);
+        toolMap.put(Constants.TOOL_GODZILLA, godzillaMap);
     }
 
 

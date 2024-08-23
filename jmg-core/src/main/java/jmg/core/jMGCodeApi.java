@@ -14,7 +14,11 @@ public class jMGCodeApi {
 
     public byte[] generate() throws Throwable {
         byte[] clazzBytes;
-        clazzBytes = config.getInjectorBytes();
+        if (config.isEnabledExtender()) {
+            clazzBytes = config.getExtenderBytes();
+        } else {
+            clazzBytes = config.getInjectorBytes();
+        }
         if (clazzBytes == null) {
             return null;
         }

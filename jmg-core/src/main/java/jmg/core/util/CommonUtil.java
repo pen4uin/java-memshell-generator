@@ -290,6 +290,13 @@ public class CommonUtil {
     }
 
 
+    public static void transformExtenderToFile(AbstractConfig config) throws Throwable {
+        config.setJarClassName(config.getExtenderClassName());
+        config.setSavePath(getFileOutputPath(config.getOutputFormat(), config.getExtenderSimpleClassName(), config.getSavePath()));
+        jMGCodeApi codeApi = new jMGCodeApi(config);
+        FileUtil.writeFile(config.getSavePath(), codeApi.generate());
+    }
+
     public static void transformToFile(AbstractConfig config) throws Throwable {
         config.setSavePath(getFileOutputPath(config.getOutputFormat(), config.getInjectorSimpleClassName(), config.getSavePath()));
         jMGCodeApi codeApi = new jMGCodeApi(config);

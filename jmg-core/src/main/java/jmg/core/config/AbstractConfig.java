@@ -304,4 +304,105 @@ public class AbstractConfig {
     }
 
 
+    public byte[] getExtenderBytes() {
+        return extenderBytes;
+    }
+
+    public void setExtenderBytes(byte[] extenderBytes) {
+        this.extenderBytes = extenderBytes;
+    }
+
+    private int extenderBytesLength;
+    private String extenderClassName;
+    private byte[] extenderBytes;
+
+    private String detectWay;
+
+
+    public String getDetectWay() {
+        return detectWay;
+    }
+
+    public void setDetectWay(String detectWay) {
+        this.detectWay = detectWay;
+    }
+
+
+    private boolean enabledExtender = false;
+
+
+
+    public boolean isEnabledExtender() {
+        return enabledExtender;
+    }
+
+    public void setEnabledExtender(boolean enabledExtender) {
+        this.enabledExtender = enabledExtender;
+    }
+
+    public int getExtenderBytesLength() {
+        return extenderBytesLength;
+    }
+
+    public void setExtenderBytesLength(int extenderBytesLength) {
+        this.extenderBytesLength = extenderBytesLength;
+    }
+
+    public String getExtenderClassName() {
+        return extenderClassName;
+    }
+
+    public void setExtenderClassName(String extenderClassName) {
+        this.extenderClassName = extenderClassName;
+    }
+
+
+    private String dnsDomain;
+
+
+
+    public String getDnsDomain() {
+        return dnsDomain;
+    }
+
+
+    public void setDnsDomain(String dnsDomain) {
+        this.dnsDomain = dnsDomain;
+    }
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
+    public String baseUrl;
+
+
+    public String getSleepTime() {
+        return sleepTime;
+    }
+
+    public void setSleepTime(String sleepTime) {
+        this.sleepTime = sleepTime;
+    }
+
+    public String sleepTime;
+
+    public void setExtenderSimpleClassName(String extenderSimpleClassName) {
+        this.extenderSimpleClassName = extenderSimpleClassName;
+    }
+
+
+    public String getJarClassName() {
+        return this.jarClassName;
+    }
+
+    public void setJarClassName(String jarClassName) {
+        this.jarClassName = jarClassName;
+    }
+
+    private String jarClassName;
 }

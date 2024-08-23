@@ -15,10 +15,10 @@ public class Constants {
 
     public static final String SERVER_JETTY = "Jetty";
     public static final String SERVER_RESIN = "Resin";
-    public static final String SERVER_WEBLOGIC = "Weblogic";
-    public static final String SERVER_WEBSPHERE = "Websphere";
+    public static final String SERVER_WEBLOGIC = "WebLogic";
+    public static final String SERVER_WEBSPHERE = "WebSphere";
     public static final String SERVER_UNDERTOW = "Undertow";
-    public static final String SERVER_GLASSFISH = "Glassfish";
+    public static final String SERVER_GLASSFISH = "GlassFish";
 
     public static final String SERVER_JBOSS = "JBoss";
 
@@ -43,6 +43,8 @@ public class Constants {
 
     public static final String GADGET_SNAKEYAML = "SnakeYaml";
 
+    public static final String GADGET_NONE = "NONE";
+
     public static final String GADGET_JDK_TRANSLET = "JDK_AbstractTranslet";
     public static final String GADGET_XALAN_TRANSLET = "XALAN_AbstractTranslet";
 
@@ -52,7 +54,7 @@ public class Constants {
 
     public static final String TOOL_CUSTOM = "Custom";
 
-    public static final String TOOL_NEOREGEORG = "NeoreGeorg";
+    public static final String TOOL_NEOREGEORG = "Neo-reGeorg";
     public static final String TOOL_SUO5 = "Suo5";
 
     public static final String EXPR_EL = "EL";
@@ -61,4 +63,11 @@ public class Constants {
     public static final String EXPR_FREEMARKER = "FreeMarker";
     public static final String EXPR_VELOCITY = "Velocity";
     public static final String EXPR_JS = "ScriptEngineManager(JS)";
+
+    public static final String DETECT_DNS = "DNSLog";
+    public static final String DETECT_HTTP = "HTTPLog";
+
+    public static final String DETECT_SLEEP = "Sleep";
+    public static final String DETECT_DFSECHO = "DFSEcho";
+
 }

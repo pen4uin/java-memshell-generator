@@ -10,6 +10,7 @@ public class ResponseUtil {
 
     static {
         METHOD_BODY_MAP.put("tomcat", getCommonMethodBody());
+        METHOD_BODY_MAP.put("jboss", getCommonMethodBody());
         METHOD_BODY_MAP.put("weblogic", getCommonMethodBody());
         METHOD_BODY_MAP.put("glassfish", getCommonMethodBody());
         METHOD_BODY_MAP.put("resin", getResinMethodBody());
