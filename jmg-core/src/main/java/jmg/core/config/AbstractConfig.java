@@ -1,5 +1,9 @@
 package jmg.core.config;
 
+import jmg.core.util.ClassNameUtil;
+import jmg.core.util.CommonUtil;
+import jmg.core.util.RandomHttpHeaderUtil;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,7 +75,6 @@ public class AbstractConfig {
     }
 
 
-
     private String shellClassName;
 
     public String getShellClassName() {
@@ -81,7 +84,6 @@ public class AbstractConfig {
     public void setShellClassName(String className) {
         this.shellClassName = className;
     }
-
 
 
     private String shellSimpleClassName;
@@ -106,7 +108,6 @@ public class AbstractConfig {
 
 
     private int shellBytesLength;
-
 
 
     public int getShellBytesLength() {
@@ -138,8 +139,6 @@ public class AbstractConfig {
     }
 
     private boolean enableDebug = false;
-
-
 
 
     private String urlPattern;
@@ -245,7 +244,6 @@ public class AbstractConfig {
     }
 
 
-
     public String getGadgetType() {
         return gadgetType;
     }
@@ -331,7 +329,6 @@ public class AbstractConfig {
     private boolean enabledExtender = false;
 
 
-
     public boolean isEnabledExtender() {
         return enabledExtender;
     }
@@ -358,7 +355,6 @@ public class AbstractConfig {
 
 
     private String dnsDomain;
-
 
 
     public String getDnsDomain() {
@@ -405,4 +401,28 @@ public class AbstractConfig {
     }
 
     private String jarClassName;
+
+    public void build() {
+        // 检查 serverType、modelType、formatType  是否已设置
+        if (this.toolType == null || this.serverType == null || this.shellType == null || this.outputFormat == null || this.gadgetType == null) {
+            throw new IllegalStateException("toolType、serverType、shellType 、formatType and gadgetType must be set.");
+        }
+        // 无自定义则随机生成
+        Map.Entry<String, String> header = RandomHttpHeaderUtil.generateHeader();
+        if (this.getHeaderName() == null) this.setHeaderName(header.getKey());
+        if (this.getHeaderValue() == null) this.setHeaderValue(header.getValue());
+        if (this.getUrlPattern() == null) this.setUrlPattern("/*");
+        if (this.getSavePath() == null) this.setSavePath(System.getProperty("user.dir"));
+        if (this.getInjectorClassName() == null)
+            this.setInjectorClassName(ClassNameUtil.getRandomInjectorClassName());
+        if (this.getInjectorSimpleClassName() == null)
+            this.setInjectorSimpleClassName(CommonUtil.getSimpleName(this.getInjectorClassName()));
+        if (this.getShellClassName() == null)
+            this.setShellClassName(ClassNameUtil.getRandomShellClassName(this.getShellType()));
+        if (this.getShellSimpleClassName() == null)
+            this.setShellSimpleClassName(CommonUtil.getSimpleName(this.getShellClassName()));
+        if (this.getOutputFormat().contains(Constants.FORMAT_BCEL))
+            this.setLoaderClassName(ClassNameUtil.getRandomLoaderClassName());
+        this.setSavePath(CommonUtil.getFileOutputPath(this.getOutputFormat(), this.getInjectorSimpleClassName(), this.getSavePath()));
+    }
 }

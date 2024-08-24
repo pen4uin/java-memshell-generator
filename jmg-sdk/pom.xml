@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>jmg</groupId>
+        <artifactId>java-memshell-generator</artifactId>
+        <version>1.0.8</version>
+    </parent>
+
+    <artifactId>jmg-sdk</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-core</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-antsword</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-behinder</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-custom</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-godzilla</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-extender</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-neoregeorg</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <artifactId>jmg-suo5</artifactId>
+            <version>${parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+</project>

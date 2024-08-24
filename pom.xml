@@ -5,7 +5,7 @@
     <groupId>jmg</groupId>
     <artifactId>java-memshell-generator</artifactId>
     <packaging>pom</packaging>
-    <version>${project.build.version}</version>
+    <version>1.0.8</version>
     <modules>
         <module>jmg-antsword</module>
         <module>jmg-behinder</module>
@@ -17,12 +17,11 @@
         <module>jmg-suo5</module>
         <module>jmg-extender</module>
         <module>jmg-woodpecker</module>
-<!--        <module>jmg-cli</module>-->
-<!--        <module>jmg-sdk</module>-->
+        <module>jmg-sdk</module>
+        <!--        <module>jmg-cli</module>-->
     </modules>
 
     <properties>
-        <project.build.version>1.0.8</project.build.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
