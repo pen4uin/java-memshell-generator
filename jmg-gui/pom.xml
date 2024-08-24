@@ -3,15 +3,15 @@
     <parent>
         <artifactId>java-memshell-generator</artifactId>
         <groupId>jmg</groupId>
-        <version>${project.build.version}</version>
+        <version>1.0.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jmg-gui</artifactId>
     <dependencies>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-core</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <!--
@@ -36,39 +36,39 @@
             <version>3.1</version>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-behinder</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-antsword</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-godzilla</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-suo5</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-neoregeorg</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-custom</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

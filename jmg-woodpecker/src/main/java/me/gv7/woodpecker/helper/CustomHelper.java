@@ -12,7 +12,7 @@ import jmg.core.util.CommonUtil;
 import jmg.custom.generator.CustomGenerator;
 import me.gv7.woodpecker.plugin.ShellHelperPlugin;
 import me.gv7.woodpecker.plugin.*;
-import me.gv7.woodpecker.util.JMGResultUtil;
+import me.gv7.woodpecker.util.WoodpeckerResultUtil;
 import javax.servlet.Filter;
 import javax.servlet.ServletRequestListener;
 import java.io.DataInputStream;
@@ -185,8 +185,8 @@ public class CustomHelper implements IHelper {
             }
             new CustomGenerator().makeShell(config);
             new InjectorGenerator().makeInjector(config);
-            JMGResultUtil.printCustomBasicInfo(resultOutput, config);
-            JMGResultUtil.printResult(resultOutput, config);
+            WoodpeckerResultUtil.printCustomBasicInfo(resultOutput, config);
+            WoodpeckerResultUtil.printResult(resultOutput, config);
         } catch (Exception e) {
             resultOutput.errorPrintln(ShellHelperPlugin.pluginHelper.getThrowableInfo(e));
         }

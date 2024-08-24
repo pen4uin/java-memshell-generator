@@ -7,7 +7,7 @@ import jmg.extender.generator.ExtenderGenerator;
 import jmg.core.util.ClassNameUtil;
 import jmg.core.util.CommonUtil;
 import me.gv7.woodpecker.tools.misc.SerializeUtil;
-import me.gv7.woodpecker.util.JMGResultUtil;
+import me.gv7.woodpecker.util.WoodpeckerResultUtil;
 import sun.misc.Unsafe;
 
 import java.io.File;
@@ -118,7 +118,7 @@ public class ExtenderHelperPlugin implements IHelperPlugin {
                 byte[] serializedBytes = SerializeUtil.serialize(objGadget);
                 config.setExtenderBytes(serializedBytes);
                 config.setExtenderBytesLength(serializedBytes.length);
-                JMGResultUtil.printResult(resultOutput, config);
+                WoodpeckerResultUtil.printResult(resultOutput, config);
             } catch (Exception e) {
                 resultOutput.errorPrintln(ExtenderHelperPlugin.pluginHelper.getThrowableInfo(e));
             }
@@ -264,8 +264,8 @@ public class ExtenderHelperPlugin implements IHelperPlugin {
                 config.setSavePath(CommonUtil.getFileOutputPath(config.getOutputFormat(), config.getExtenderSimpleClassName(), config.getSavePath()));
 
                 new ExtenderGenerator().makeShell(config);
-                JMGResultUtil.printResult(resultOutput, config);
-                JMGResultUtil.printExtenderBasicInfo(resultOutput, config);
+                WoodpeckerResultUtil.printResult(resultOutput, config);
+                WoodpeckerResultUtil.printExtenderBasicInfo(resultOutput, config);
             } catch (Exception e) {
                 resultOutput.errorPrintln(ExtenderHelperPlugin.pluginHelper.getThrowableInfo(e));
             }

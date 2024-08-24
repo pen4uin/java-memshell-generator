@@ -8,7 +8,7 @@ import me.gv7.woodpecker.plugin.ShellHelperPlugin;
 
 import java.io.IOException;
 
-public class JMGResultUtil {
+public class WoodpeckerResultUtil {
 
     public static void printAntSwordBasicInfo(IResultOutput resultOutput, AbstractConfig config) {
         resultOutput.successPrintln("基础信息:");

@@ -4,16 +4,16 @@
     <parent>
         <groupId>jmg</groupId>
         <artifactId>java-memshell-generator</artifactId>
-        <version>${project.build.version}</version>
+        <version>1.0.8</version>
     </parent>
     <artifactId>jmg-godzilla</artifactId>
 
 
     <dependencies>
         <dependency>
-            <groupId>jmg</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>jmg-core</artifactId>
-            <version>${project.build.version}</version>
+            <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

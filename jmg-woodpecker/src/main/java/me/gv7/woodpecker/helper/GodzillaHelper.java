@@ -6,7 +6,7 @@ import jmg.core.generator.InjectorGenerator;
 import jmg.godzilla.generator.GodzillaGenerator;
 import me.gv7.woodpecker.plugin.IResultOutput;
 import me.gv7.woodpecker.plugin.ShellHelperPlugin;
-import me.gv7.woodpecker.util.JMGResultUtil;
+import me.gv7.woodpecker.util.WoodpeckerResultUtil;
 
 import java.util.Map;
 
@@ -23,9 +23,9 @@ public class GodzillaHelper extends ShellHelper {
             AbstractConfig config = initConfig(customArgs);
             new GodzillaGenerator().makeShell(config);
             new InjectorGenerator().makeInjector(config);
-            JMGResultUtil.printGodzillaBasicInfo(resultOutput, config);
-            JMGResultUtil.printResult(resultOutput, config);
-            JMGResultUtil.printDebugInfo(resultOutput, config);
+            WoodpeckerResultUtil.printGodzillaBasicInfo(resultOutput, config);
+            WoodpeckerResultUtil.printResult(resultOutput, config);
+            WoodpeckerResultUtil.printDebugInfo(resultOutput, config);
         } catch (Exception e) {
             resultOutput.errorPrintln(ShellHelperPlugin.pluginHelper.getThrowableInfo(e));
         }

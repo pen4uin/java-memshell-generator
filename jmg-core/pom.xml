@@ -3,7 +3,7 @@
     <parent>
         <artifactId>java-memshell-generator</artifactId>
         <groupId>jmg</groupId>
-        <version>${project.build.version}</version>
+        <version>1.0.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jmg-core</artifactId>
