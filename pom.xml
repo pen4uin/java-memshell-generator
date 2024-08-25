@@ -18,7 +18,8 @@
         <module>jmg-extender</module>
         <module>jmg-woodpecker</module>
         <module>jmg-sdk</module>
-        <!--        <module>jmg-cli</module>-->
+        <module>jmg-cli</module>
+        <module>jmg-all</module>
     </modules>
 
     <properties>
