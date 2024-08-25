@@ -5,10 +5,10 @@ import jmg.gui.form.jMGForm;
 
 import javax.swing.*;
 
-public class jMGApp {
+public class GUIApp {
     public static void main(String[] args) {
         FlatLightLaf.setup();
-        SwingUtilities.invokeLater(jMGApp::createAndShowGUI);
+        SwingUtilities.invokeLater(GUIApp::createAndShowGUI);
     }
 
     private static void createAndShowGUI() {
