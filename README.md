@@ -60,7 +60,7 @@ java -jar ./releases/jmg-cli-1.0.8.jar
 
 **第三方库 (Maven)**
 
-1.将 jEG-Core-1.0.0.jar 安装到本地 maven 仓库
+1.将 jmg-sdk-1.0.8.jar 安装到本地 maven 仓库
 
 ```shell
 mvn install:install-file -Dfile=./releases/jmg-sdk-1.0.8.jar -DgroupId=jmg -DartifactId=jmg-sdk -Dversion=1.0.8 -Dpackaging=jar
