@@ -33,16 +33,75 @@
 
 ## 编译
 
-- maven
+maven (v3.9.3)
 
 ```shell
 mvn package assembly:single
 ```
 
-- jmg-gui
+## 使用
+
+**图形化**
 
 ```shell
-java -jar ./jmg-gui/target/jmg-gui-1.0.8-jar-with-dependencies.jar
+java -jar ./releases/jmg-gui-1.0.8.jar
+```
+
+**命令行**
+
+```shell
+java -jar ./releases/jmg-cli-1.0.8.jar
+```
+
+**Woodpecker 插件**
+
+将 jmg-woodpecker-1.0.8.jar 添加到 woodpecker 插件目录
+
+
+**第三方库 (Maven)**
+
+1.将 jEG-Core-1.0.0.jar 安装到本地 maven 仓库
+
+```shell
+mvn install:install-file -Dfile=./releases/jmg-sdk-1.0.8.jar -DgroupId=jmg -DartifactId=jmg-sdk -Dversion=1.0.8 -Dpackaging=jar
+```
+
+2.添加为依赖
+
+```xml
+<dependency>
+    <groupId>jmg</groupId>
+    <artifactId>jmg-sdk</artifactId>
+    <version>1.0.8</version>
+</dependency>
+```
+
+3.示例
+
+```
+// 基础配置
+AbstractConfig config = new AbstractConfig() {{
+    // 设置工具类型
+    setToolType(Constants.TOOL_GODZILLA);
+    // 设置中间件 or 框架
+    setServerType(Constants.SERVER_TOMCAT);
+    // 设置内存马类型
+    setShellType(Constants.SHELL_LISTENER);
+    // 设置输出格式为 BASE64
+    setOutputFormat(Constants.FORMAT_BASE64);
+    // 设置漏洞利用封装，默认不启用
+    setGadgetType(Constants.GADGET_NONE);
+    // 初始化基础配置
+    build();
+}};
+
+jMGenerator generator = new jMGenerator(config);
+generator.genPayload();
+generator.printPayload();
+
+// 连接信息
+SDKResultUtil.printBasicInfo(config);
+SDKResultUtil.printDebugInfo(config);
 ```
 
 ## 文档
