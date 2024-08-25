@@ -107,7 +107,7 @@ public class jMGForm {
     public jMGForm() {
         config = new AbstractConfig();
 
-        String[] servletApiShellBox = {Constants.SHELL_LISTENER, Constants.SHELL_FILTER, Constants.SHELL_JAKARTA_LISTENER,Constants.SHELL_JAKARTA_FILTER};
+        String[] servletApiShellBox = {Constants.SHELL_LISTENER, Constants.SHELL_FILTER, Constants.SHELL_JAKARTA_LISTENER, Constants.SHELL_JAKARTA_FILTER};
         String[] servletApiServerBox = {Constants.SERVER_TOMCAT, Constants.SERVER_RESIN, Constants.SERVER_WEBLOGIC, Constants.SERVER_WEBSPHERE, Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS};
         String[] interceptorServerBox = {Constants.SERVER_SPRING_MVC};
         String[] interceptorShellBox = {Constants.SHELL_INTERCEPTOR};
@@ -497,7 +497,7 @@ public class jMGForm {
         MiddleSep = new JSeparator();
         jMGPanel.add(MiddleSep, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         BottomPanel = new JPanel();
-        BottomPanel.setLayout(new GridLayoutManager(1, 5, new Insets(0, 0, 0, 0), -1, -1));
+        BottomPanel.setLayout(new GridLayoutManager(1, 6, new Insets(0, 0, 0, 0), -1, -1));
         jMGPanel.add(BottomPanel, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         enableGadget = new JCheckBox();
         this.$$$loadButtonText$$$(enableGadget, this.$$$getMessageFromBundle$$$("messages", "gadget.text"));
@@ -527,7 +527,11 @@ public class jMGForm {
         BottomPanel.add(exprBox, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         generateButton = new JButton();
         this.$$$loadButtonText$$$(generateButton, this.$$$getMessageFromBundle$$$("messages", "generate.text"));
-        BottomPanel.add(generateButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        BottomPanel.add(generateButton, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bypassJDKModuleCheckBox = new JCheckBox();
+        bypassJDKModuleCheckBox.setText("Bypass JDK Module");
+        bypassJDKModuleCheckBox.setToolTipText("绕过高版本 JDK Module 访问限制");
+        BottomPanel.add(bypassJDKModuleCheckBox, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         TipPanel = new JPanel();
         TipPanel.setLayout(new GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
         jMGPanel.add(TipPanel, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

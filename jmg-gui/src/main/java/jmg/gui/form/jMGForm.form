@@ -357,6 +357,7 @@
             </constraints>
             <properties>
               <text value="Bypass JDK Module"/>
+              <toolTipText value="绕过高版本 JDK Module 访问限制"/>
             </properties>
           </component>
         </children>
