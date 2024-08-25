@@ -129,7 +129,15 @@ public class AbstractConfig {
 
     public String shellGzipBase64String;
 
+    public boolean isEnableBypassJDKModule() {
+        return enableBypassJDKModule;
+    }
 
+    public void setEnableBypassJDKModule(boolean enableBypassJDKModule) {
+        this.enableBypassJDKModule = enableBypassJDKModule;
+    }
+
+    private boolean enableBypassJDKModule;
     public boolean isEnableDebug() {
         return enableDebug;
     }
