@@ -1,9 +1,7 @@
 package jmg.neoregeorg.util;
 
 import jmg.core.config.Constants;
-import jmg.neoregeorg.memshell.NeoreGeorgFilter;
-import jmg.neoregeorg.memshell.NeoreGeorgInterceptor;
-import jmg.neoregeorg.memshell.NeoreGeorgListener;
+import jmg.neoregeorg.memshell.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,10 +31,15 @@ public class ShellUtil {
         SHELL_CLASSNAME_MAP.put(NeoreGeorgListener.class.getSimpleName(), NeoreGeorgListener.class.getName());
         SHELL_CLASSNAME_MAP.put(NeoreGeorgFilter.class.getSimpleName(), NeoreGeorgFilter.class.getName());
         SHELL_CLASSNAME_MAP.put(NeoreGeorgInterceptor.class.getSimpleName(), NeoreGeorgInterceptor.class.getName());
+        SHELL_CLASSNAME_MAP.put(NeoreGeorgJakartaListener.class.getSimpleName(), NeoreGeorgJakartaListener.class.getName());
+        SHELL_CLASSNAME_MAP.put(NeoreGeorgJakartaFilter.class.getSimpleName(), NeoreGeorgJakartaFilter.class.getName());
+
         Map<String, String> regeorgMap = new HashMap();
         regeorgMap.put(Constants.SHELL_FILTER, NeoreGeorgFilter.class.getSimpleName());
         regeorgMap.put(Constants.SHELL_LISTENER, NeoreGeorgListener.class.getSimpleName());
         regeorgMap.put(Constants.SHELL_INTERCEPTOR, NeoreGeorgInterceptor.class.getSimpleName());
+        regeorgMap.put(Constants.SHELL_JAKARTA_FILTER, NeoreGeorgJakartaFilter.class.getSimpleName());
+        regeorgMap.put(Constants.SHELL_JAKARTA_LISTENER, NeoreGeorgJakartaListener.class.getSimpleName());
         toolMap.put(Constants.TOOL_NEOREGEORG, regeorgMap);
     }
 }

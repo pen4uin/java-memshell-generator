@@ -65,6 +65,7 @@ public class jMGForm {
     private JPanel BottomPanel;
     private JPanel TipPanel;
     private JTextPane textPane;
+    private JCheckBox bypassJDKModuleCheckBox;
 
     private AbstractConfig config;
 
@@ -106,7 +107,7 @@ public class jMGForm {
     public jMGForm() {
         config = new AbstractConfig();
 
-        String[] servletApiShellBox = {Constants.SHELL_LISTENER, Constants.SHELL_FILTER};
+        String[] servletApiShellBox = {Constants.SHELL_LISTENER, Constants.SHELL_FILTER, Constants.SHELL_JAKARTA_LISTENER,Constants.SHELL_JAKARTA_FILTER};
         String[] servletApiServerBox = {Constants.SERVER_TOMCAT, Constants.SERVER_RESIN, Constants.SERVER_WEBLOGIC, Constants.SERVER_WEBSPHERE, Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS};
         String[] interceptorServerBox = {Constants.SERVER_SPRING_MVC};
         String[] interceptorShellBox = {Constants.SHELL_INTERCEPTOR};
@@ -289,7 +290,12 @@ public class jMGForm {
             }
         });
 
-
+        bypassJDKModuleCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                config.setEnableBypassJDKModule(bypassJDKModuleCheckBox.isSelected());
+            }
+        });
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -23,6 +23,8 @@ public class ResultUtil {
             case Constants.SHELL_LISTENER:
             case Constants.SHELL_FILTER:
             case Constants.SHELL_INTERCEPTOR:
+            case Constants.SHELL_JAKARTA_LISTENER:
+            case Constants.SHELL_JAKARTA_FILTER:
                 TextPaneUtil.successPrintln("基础信息:");
                 TextPaneUtil.rawPrintln("");
                 TextPaneUtil.rawPrintln("加密器: JAVA_AES_BASE64");

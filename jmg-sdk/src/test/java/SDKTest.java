@@ -22,7 +22,7 @@ public class SDKTest {
         // 必需的基础配置
         AbstractConfig config = new AbstractConfig() {{
             // 设置工具类型
-            setToolType(Constants.TOOL_GODZILLA);
+            setToolType(Constants.TOOL_BEHINDER);
             // 设置中间件 or 框架
             setServerType(Constants.SERVER_TOMCAT);
             // 设置内存马类型

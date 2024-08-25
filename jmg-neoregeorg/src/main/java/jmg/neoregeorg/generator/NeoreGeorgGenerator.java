@@ -44,6 +44,11 @@ public class NeoreGeorgGenerator implements IShellGenerator {
                 String methodBody = ResponseUtil.getMethodBody(config.getServerType());
                 JavassistUtil.addMethod(ctClass, "getResponseFromRequest", methodBody);
             }
+            if (config.getShellType().equals(Constants.SHELL_JAKARTA_LISTENER)) {
+                String methodBody = ResponseUtil.getMethodBody(config.getServerType());
+                methodBody = methodBody.replace("javax.servlet.", "jakarta.servlet.");
+                JavassistUtil.addMethod(ctClass, "getResponseFromRequest", methodBody);
+            }
             JavassistUtil.removeSourceFileAttribute(ctClass);
             bytes = ctClass.toBytecode();
             ctClass.detach();

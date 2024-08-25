@@ -49,6 +49,8 @@ public class ShellHelper implements IHelper {
         enumShellType.add(Constants.SHELL_LISTENER);
         enumShellType.add(Constants.SHELL_FILTER);
         enumShellType.add(Constants.SHELL_INTERCEPTOR);
+        enumShellType.add(Constants.SHELL_JAKARTA_LISTENER);
+        enumShellType.add(Constants.SHELL_JAKARTA_FILTER);
         shell_type.setEnumValue(enumShellType);
 
         shell_type.setDefaultValue("Listener");
@@ -134,6 +136,18 @@ public class ShellHelper implements IHelper {
         output_path.setDescription("自定义输出路径");
         list.add(output_path);
 
+        IArg enable_bypass_jdk_module = ShellHelperPlugin.pluginHelper.createArg();
+        enable_bypass_jdk_module.setName("bypass_jdk_module");
+        enable_bypass_jdk_module.setType(7);
+        List<String> enumenableBypass = new ArrayList();
+        enumenableBypass.add(String.valueOf(false));
+        enumenableBypass.add(String.valueOf(true));
+        enable_bypass_jdk_module.setEnumValue(enumenableBypass);
+        enable_bypass_jdk_module.setDefaultValue(String.valueOf(false));
+        enable_bypass_jdk_module.setRequired(false);
+        enable_bypass_jdk_module.setDescription("绕过高版本 JDK Module 访问限制");
+        list.add(enable_bypass_jdk_module);
+
         binder.setArgsList(list);
         return binder;
     }
@@ -179,6 +193,7 @@ public class ShellHelper implements IHelper {
             config.setShellClassName(ClassNameUtil.getRandomShellClassName(config.getShellType()));
         if (config.getShellSimpleClassName() == null)
             config.setShellSimpleClassName(CommonUtil.getSimpleName(config.getShellClassName()));
+        if (customArgs.get("bypass_jdk_module") != null) config.setEnableBypassJDKModule(Boolean.parseBoolean((String) customArgs.get("bypass_jdk_module")));
 
         config.setSavePath(CommonUtil.getFileOutputPath(config.getOutputFormat(), config.getInjectorSimpleClassName(), config.getSavePath()));
 

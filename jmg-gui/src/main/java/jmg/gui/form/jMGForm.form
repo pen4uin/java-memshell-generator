@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="jMGPanel" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="863" height="665"/>
+      <xy x="20" y="20" width="891" height="665"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -289,7 +289,7 @@
         </constraints>
         <properties/>
       </component>
-      <grid id="ff8e2" binding="BottomPanel" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ff8e2" binding="BottomPanel" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -345,10 +345,18 @@
           </component>
           <component id="3a0da" class="javax.swing.JButton" binding="generateButton">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text resource-bundle="messages" key="generate.text"/>
+            </properties>
+          </component>
+          <component id="61ba3" class="javax.swing.JCheckBox" binding="bypassJDKModuleCheckBox" default-binding="true">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Bypass JDK Module"/>
             </properties>
           </component>
         </children>

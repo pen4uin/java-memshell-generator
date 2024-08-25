@@ -1,6 +1,8 @@
 package jmg.antsword.util;
 
 import jmg.antsword.memshell.AntSwordFilter;
+import jmg.antsword.memshell.AntSwordJakartaFilter;
+import jmg.antsword.memshell.AntSwordJakartaListener;
 import jmg.antsword.memshell.AntSwordListener;
 import jmg.core.config.Constants;
 
@@ -31,9 +33,13 @@ public class ShellUtil {
     static {
         SHELL_CLASSNAME_MAP.put(AntSwordListener.class.getSimpleName(), AntSwordListener.class.getName());
         SHELL_CLASSNAME_MAP.put(AntSwordFilter.class.getSimpleName(), AntSwordFilter.class.getName());
+        SHELL_CLASSNAME_MAP.put(AntSwordJakartaListener.class.getSimpleName(), AntSwordJakartaListener.class.getName());
+        SHELL_CLASSNAME_MAP.put(AntSwordJakartaFilter.class.getSimpleName(), AntSwordJakartaFilter.class.getName());
         Map<String, String> antSwordMap = new HashMap();
         antSwordMap.put(Constants.SHELL_FILTER,AntSwordFilter.class.getSimpleName());
         antSwordMap.put(Constants.SHELL_LISTENER, AntSwordListener.class.getSimpleName());
+        antSwordMap.put(Constants.SHELL_JAKARTA_FILTER,AntSwordJakartaFilter.class.getSimpleName());
+        antSwordMap.put(Constants.SHELL_JAKARTA_LISTENER, AntSwordJakartaListener.class.getSimpleName());
         toolMap.put(Constants.TOOL_ANTSWORD, antSwordMap);
     }
 

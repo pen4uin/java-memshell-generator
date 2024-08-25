@@ -1,9 +1,7 @@
 package jmg.suo5.util;
 
 import jmg.core.config.Constants;
-import jmg.suo5.memshell.Suo5Filter;
-import jmg.suo5.memshell.Suo5Interceptor;
-import jmg.suo5.memshell.Suo5Listener;
+import jmg.suo5.memshell.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,10 +31,15 @@ public class ShellUtil {
         SHELL_CLASSNAME_MAP.put(Suo5Listener.class.getSimpleName(), Suo5Listener.class.getName());
         SHELL_CLASSNAME_MAP.put(Suo5Filter.class.getSimpleName(), Suo5Filter.class.getName());
         SHELL_CLASSNAME_MAP.put(Suo5Interceptor.class.getSimpleName(), Suo5Interceptor.class.getName());
+        SHELL_CLASSNAME_MAP.put(Suo5JakartaListener.class.getSimpleName(), Suo5JakartaListener.class.getName());
+        SHELL_CLASSNAME_MAP.put(Suo5JakartaFilter.class.getSimpleName(), Suo5JakartaFilter.class.getName());
+
         Map<String, String> suo5Map = new HashMap();
         suo5Map.put(Constants.SHELL_FILTER, Suo5Filter.class.getSimpleName());
         suo5Map.put(Constants.SHELL_LISTENER, Suo5Listener.class.getSimpleName());
         suo5Map.put(Constants.SHELL_INTERCEPTOR, Suo5Interceptor.class.getSimpleName());
+        suo5Map.put(Constants.SHELL_JAKARTA_FILTER, Suo5JakartaFilter.class.getSimpleName());
+        suo5Map.put(Constants.SHELL_JAKARTA_LISTENER, Suo5JakartaListener.class.getSimpleName());
         toolMap.put(Constants.TOOL_SUO5, suo5Map);
     }
 

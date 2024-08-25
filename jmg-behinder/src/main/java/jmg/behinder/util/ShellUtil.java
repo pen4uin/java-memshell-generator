@@ -1,8 +1,6 @@
 package jmg.behinder.util;
 
-import jmg.behinder.memshell.BehinderFilter;
-import jmg.behinder.memshell.BehinderInterceptor;
-import jmg.behinder.memshell.BehinderListener;
+import jmg.behinder.memshell.*;
 import jmg.core.config.Constants;
 
 import java.util.HashMap;
@@ -33,11 +31,15 @@ public class ShellUtil {
         SHELL_CLASSNAME_MAP.put(BehinderListener.class.getSimpleName(), BehinderListener.class.getName());
         SHELL_CLASSNAME_MAP.put(BehinderFilter.class.getSimpleName(), BehinderFilter.class.getName());
         SHELL_CLASSNAME_MAP.put(BehinderInterceptor.class.getSimpleName(), BehinderInterceptor.class.getName());
+        SHELL_CLASSNAME_MAP.put(BehinderJakartaFilter.class.getSimpleName(), BehinderJakartaFilter.class.getName());
+        SHELL_CLASSNAME_MAP.put(BehinderJakartaListener.class.getSimpleName(), BehinderJakartaListener.class.getName());
 
         Map<String, String> behinderMap = new HashMap();
         behinderMap.put(Constants.SHELL_FILTER, BehinderFilter.class.getSimpleName());
         behinderMap.put(Constants.SHELL_LISTENER, BehinderListener.class.getSimpleName());
         behinderMap.put(Constants.SHELL_INTERCEPTOR, BehinderInterceptor.class.getSimpleName());
+        behinderMap.put(Constants.SHELL_JAKARTA_LISTENER, BehinderJakartaListener.class.getSimpleName());
+        behinderMap.put(Constants.SHELL_JAKARTA_FILTER, BehinderJakartaFilter.class.getSimpleName());
         toolMap.put(Constants.TOOL_BEHINDER, behinderMap);
 
     }

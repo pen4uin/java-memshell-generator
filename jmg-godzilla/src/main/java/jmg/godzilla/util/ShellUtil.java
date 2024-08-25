@@ -1,10 +1,7 @@
 package jmg.godzilla.util;
 
 import jmg.core.config.Constants;
-import jmg.godzilla.memshell.GodzillaFilter;
-import jmg.godzilla.memshell.GodzillaInterceptor;
-import jmg.godzilla.memshell.GodzillaListener;
-import jmg.godzilla.memshell.GodzillaWebFluxHandlerMethod;
+import jmg.godzilla.memshell.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,12 +32,17 @@ public class ShellUtil {
         SHELL_CLASSNAME_MAP.put(GodzillaListener.class.getSimpleName(), GodzillaListener.class.getName());
         SHELL_CLASSNAME_MAP.put(GodzillaInterceptor.class.getSimpleName(), GodzillaInterceptor.class.getName());
         SHELL_CLASSNAME_MAP.put(GodzillaWebFluxHandlerMethod.class.getSimpleName(), GodzillaWebFluxHandlerMethod.class.getName());
+        SHELL_CLASSNAME_MAP.put(GodzillaJakartaFilter.class.getSimpleName(), GodzillaJakartaFilter.class.getName());
+        SHELL_CLASSNAME_MAP.put(GodzillaJakartaListener.class.getSimpleName(), GodzillaJakartaListener.class.getName());
 
         Map<String, String> godzillaMap = new HashMap();
         godzillaMap.put(Constants.SHELL_FILTER, GodzillaFilter.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_LISTENER, GodzillaListener.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_INTERCEPTOR, GodzillaInterceptor.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_WF_HANDLERMETHOD, GodzillaWebFluxHandlerMethod.class.getSimpleName());
+        godzillaMap.put(Constants.SHELL_JAKARTA_FILTER, GodzillaJakartaFilter.class.getSimpleName());
+        godzillaMap.put(Constants.SHELL_JAKARTA_LISTENER, GodzillaJakartaListener.class.getSimpleName());
+
         toolMap.put(Constants.TOOL_GODZILLA, godzillaMap);
     }
 

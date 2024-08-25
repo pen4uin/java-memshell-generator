@@ -59,6 +59,8 @@ public class InjectorUtil {
         Map<String, String> tomcatMap = new HashMap();
         tomcatMap.put(Constants.SHELL_LISTENER, "TomcatListenerInjector");
         tomcatMap.put(Constants.SHELL_FILTER, "TomcatFilterInjector");
+        tomcatMap.put(Constants.SHELL_JAKARTA_LISTENER, "TomcatListenerInjector");
+        tomcatMap.put(Constants.SHELL_JAKARTA_FILTER, "TomcatFilterInjector");
         classMap.put(Constants.SERVER_TOMCAT, tomcatMap);
 
 

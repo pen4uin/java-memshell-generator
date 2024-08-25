@@ -25,6 +25,8 @@ public class Constants {
 
     public static final String SHELL_LISTENER = "Listener";
     public static final String SHELL_FILTER = "Filter";
+    public static final String SHELL_JAKARTA_LISTENER = "JakartaListener";
+    public static final String SHELL_JAKARTA_FILTER = "JakartaFilter";
     public static final String SHELL_VALVE = "Valve";
     public static final String SHELL_INTERCEPTOR = "Interceptor";
     public static final String SHELL_WF_HANDLERMETHOD = "WFHandlerMethod";
