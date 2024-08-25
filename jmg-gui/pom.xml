@@ -85,9 +85,11 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>jmg.gui.jMGApp</mainClass>
+                            <mainClass>jmg.gui.GUIApp</mainClass>
                         </manifest>
                     </archive>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <outputDirectory>../releases</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
