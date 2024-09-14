@@ -21,9 +21,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class jMGForm {
     private static JFrame frame;
@@ -107,35 +105,70 @@ public class jMGForm {
     public jMGForm() {
         config = new AbstractConfig();
 
-        String[] servletApiShellBox = {Constants.SHELL_LISTENER, Constants.SHELL_FILTER, Constants.SHELL_JAKARTA_LISTENER, Constants.SHELL_JAKARTA_FILTER};
-        String[] servletApiServerBox = {Constants.SERVER_TOMCAT, Constants.SERVER_RESIN, Constants.SERVER_WEBLOGIC, Constants.SERVER_WEBSPHERE, Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS};
-        String[] interceptorServerBox = {Constants.SERVER_SPRING_MVC};
-        String[] interceptorShellBox = {Constants.SHELL_INTERCEPTOR};
-        String[] handlerMethodServerBox = {Constants.SERVER_SPRING_WEBFLUX};
-        String[] handlerMethodShellBox = {Constants.SHELL_WF_HANDLERMETHOD};
-        String[] behinderServerBox = CommonUtil.concatenateArrays(servletApiServerBox, interceptorServerBox);
-        String[] behinderShellBox = CommonUtil.concatenateArrays(servletApiShellBox, interceptorShellBox);
-        String[] godzillaServerBox = CommonUtil.concatenateArrays(behinderServerBox, handlerMethodServerBox);
-        String[] godzillaShellBox = CommonUtil.concatenateArrays(behinderShellBox, handlerMethodShellBox);
-        String[] formatBoxForOther = new String[]{Constants.FORMAT_BASE64, Constants.FORMAT_BIGINTEGER, Constants.FORMAT_BCEL, Constants.FORMAT_CLASS, Constants.FORMAT_JAR, Constants.FORMAT_JS, Constants.FORMAT_JSP};
-        String[] formatBoxForTomcat = new String[]{Constants.FORMAT_BASE64, Constants.FORMAT_BIGINTEGER, Constants.FORMAT_BCEL, Constants.FORMAT_CLASS, Constants.FORMAT_JAR, Constants.FORMAT_JAR_AGENT, Constants.FORMAT_JS, Constants.FORMAT_JSP};
+        ArrayList<String> servletApiShellBox = new ArrayList<>(Arrays.asList(
+                Constants.SHELL_LISTENER, Constants.SHELL_FILTER, Constants.SHELL_JAKARTA_LISTENER, Constants.SHELL_JAKARTA_FILTER,
+                Constants.SHELL_VALVE
+        ));
 
-        String[] exprEncoderBoxItems = new String[]{Constants.EXPR_EL, Constants.EXPR_SPEL, Constants.EXPR_OGNL, Constants.EXPR_FREEMARKER, Constants.EXPR_VELOCITY, Constants.EXPR_JS};
-        String[] gadgetTypeBoxItems = new String[]{Constants.GADGET_JDK_TRANSLET, Constants.GADGET_SNAKEYAML, Constants.GADGET_FJ_GROOVY, Constants.GADGET_XALAN_TRANSLET};
+        ArrayList<String> servletApiServerBox = new ArrayList<>(Arrays.asList(
+                Constants.SERVER_TOMCAT, Constants.SERVER_RESIN, Constants.SERVER_WEBLOGIC, Constants.SERVER_WEBSPHERE,
+                Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS
+        ));
 
-        formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForTomcat));
-        serverBox.setModel(new DefaultComboBoxModel(behinderServerBox));
-        shellBox.setModel(new DefaultComboBoxModel(servletApiShellBox));
+        ArrayList<String> interceptorServerBox = new ArrayList<>(Arrays.asList(Constants.SERVER_SPRING_MVC));
+        ArrayList<String> interceptorShellBox = new ArrayList<>(Arrays.asList(Constants.SHELL_INTERCEPTOR));
+        ArrayList<String> handlerMethodServerBox = new ArrayList<>(Arrays.asList(Constants.SERVER_SPRING_WEBFLUX));
+        ArrayList<String> handlerMethodShellBox = new ArrayList<>(Arrays.asList(Constants.SHELL_WF_HANDLERMETHOD));
+
+        ArrayList<String> behinderServerBox = new ArrayList<>();
+        behinderServerBox.addAll(servletApiServerBox);
+        behinderServerBox.addAll(interceptorServerBox);
+
+        ArrayList<String> behinderShellBox = new ArrayList<>();
+        behinderShellBox.addAll(servletApiShellBox);
+        behinderShellBox.addAll(interceptorShellBox);
+
+        ArrayList<String> godzillaServerBox = new ArrayList<>();
+        godzillaServerBox.addAll(behinderServerBox);
+        godzillaServerBox.addAll(handlerMethodServerBox);
+
+        ArrayList<String> godzillaShellBox = new ArrayList<>();
+        godzillaShellBox.addAll(behinderShellBox);
+        godzillaShellBox.addAll(handlerMethodShellBox);
+
+        ArrayList<String> formatBoxForOther = new ArrayList<>(Arrays.asList(
+                Constants.FORMAT_BASE64, Constants.FORMAT_BIGINTEGER, Constants.FORMAT_BCEL, Constants.FORMAT_CLASS,
+                Constants.FORMAT_JAR, Constants.FORMAT_JS, Constants.FORMAT_JSP
+        ));
+
+        ArrayList<String> formatBoxForTomcat = new ArrayList<>(Arrays.asList(
+                Constants.FORMAT_BASE64, Constants.FORMAT_BIGINTEGER, Constants.FORMAT_BCEL, Constants.FORMAT_CLASS,
+                Constants.FORMAT_JAR, Constants.FORMAT_JAR_AGENT, Constants.FORMAT_JS, Constants.FORMAT_JSP
+        ));
+
+        ArrayList<String> exprEncoderBoxItems = new ArrayList<>(Arrays.asList(
+                Constants.EXPR_EL, Constants.EXPR_SPEL, Constants.EXPR_OGNL, Constants.EXPR_FREEMARKER, Constants.EXPR_VELOCITY, Constants.EXPR_JS
+        ));
+
+        ArrayList<String> gadgetTypeBoxItems = new ArrayList<>(Arrays.asList(
+                Constants.GADGET_JDK_TRANSLET, Constants.GADGET_SNAKEYAML, Constants.GADGET_FJ_GROOVY, Constants.GADGET_XALAN_TRANSLET
+        ));
+
+        // 设置模型
+        formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForTomcat.toArray(new String[0])));
+        serverBox.setModel(new DefaultComboBoxModel<>(behinderServerBox.toArray(new String[0])));
+        shellBox.setModel(new DefaultComboBoxModel<>(servletApiShellBox.toArray(new String[0])));
+
         toolBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 toolType = (String) toolBox.getSelectedItem();
                 if (toolType.equals(Constants.TOOL_GODZILLA)) {
-                    serverBox.setModel(new DefaultComboBoxModel(godzillaServerBox));
-                    shellBox.setModel(new DefaultComboBoxModel(godzillaShellBox));
+                    serverBox.setModel(new DefaultComboBoxModel(godzillaServerBox.toArray(new String[0])));
+                    shellBox.setModel(new DefaultComboBoxModel(godzillaShellBox.toArray(new String[0])));
 
                 } else if (toolType.equals(Constants.TOOL_ANTSWORD)) {
-                    shellBox.setModel(new DefaultComboBoxModel(servletApiShellBox));
-                    serverBox.setModel(new DefaultComboBoxModel(servletApiServerBox));
+                    shellBox.setModel(new DefaultComboBoxModel(servletApiShellBox.toArray(new String[0])));
+                    serverBox.setModel(new DefaultComboBoxModel(servletApiServerBox.toArray(new String[0])));
                 } else if (toolType.equals(Constants.TOOL_CUSTOM)) {
                     JFileChooser fileChooser = new JFileChooser();
                     FileFilter classFileFilter = new FileFilter() {
@@ -160,8 +193,8 @@ public class jMGForm {
                         config.setClassFilePath(selectedPath);
                     }
                 } else {
-                    serverBox.setModel(new DefaultComboBoxModel(behinderServerBox));
-                    shellBox.setModel(new DefaultComboBoxModel(behinderShellBox));
+                    serverBox.setModel(new DefaultComboBoxModel(behinderServerBox.toArray(new String[0])));
+                    shellBox.setModel(new DefaultComboBoxModel(behinderShellBox.toArray(new String[0])));
                 }
             }
         });
@@ -171,19 +204,19 @@ public class jMGForm {
             public void actionPerformed(ActionEvent e) {
                 serverType = (String) serverBox.getSelectedItem();
                 if (serverType.equals(Constants.SERVER_SPRING_MVC)) {
-                    shellBox.setModel(new DefaultComboBoxModel<>(interceptorShellBox));
+                    shellBox.setModel(new DefaultComboBoxModel<>(interceptorShellBox.toArray(new String[0])));
                     shellType = (String) shellBox.getSelectedItem();
                 } else if (serverType.equals(Constants.SERVER_SPRING_WEBFLUX)) {
-                    shellBox.setModel(new DefaultComboBoxModel<>(handlerMethodShellBox));
+                    shellBox.setModel(new DefaultComboBoxModel<>(handlerMethodShellBox.toArray(new String[0])));
                     shellType = (String) shellBox.getSelectedItem();
                 } else {
-                    shellBox.setModel(new DefaultComboBoxModel<>(servletApiShellBox));
+                    shellBox.setModel(new DefaultComboBoxModel<>(servletApiShellBox.toArray(new String[0])));
                     shellType = (String) shellBox.getSelectedItem();
                 }
                 if (!serverType.equals(Constants.SERVER_TOMCAT) && !serverType.equals(Constants.SERVER_SPRING_MVC)) {
-                    formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForOther));
+                    formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForOther.toArray(new String[0])));
                 } else {
-                    formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForTomcat));
+                    formatBox.setModel(new DefaultComboBoxModel<>(formatBoxForTomcat.toArray(new String[0])));
                 }
             }
         });
@@ -247,7 +280,7 @@ public class jMGForm {
                 } else {
                     exprBox.setEnabled(enableExpr.isSelected());
                     config.setExprEncoder(null);
-                    exprBox.setModel(new DefaultComboBoxModel(exprEncoderBoxItems));
+                    exprBox.setModel(new DefaultComboBoxModel(exprEncoderBoxItems.toArray(new String[0])));
                 }
 
             }
@@ -274,7 +307,7 @@ public class jMGForm {
                 } else {
                     gadgetTypeBox.setEnabled(enableGadget.isSelected());
                     config.setGadgetType(null);
-                    gadgetTypeBox.setModel(new DefaultComboBoxModel(gadgetTypeBoxItems));
+                    gadgetTypeBox.setModel(new DefaultComboBoxModel(gadgetTypeBoxItems.toArray(new String[0])));
                 }
             }
         });

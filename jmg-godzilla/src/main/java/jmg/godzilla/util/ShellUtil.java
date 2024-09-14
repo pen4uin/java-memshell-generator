@@ -34,6 +34,7 @@ public class ShellUtil {
         SHELL_CLASSNAME_MAP.put(GodzillaWebFluxHandlerMethod.class.getSimpleName(), GodzillaWebFluxHandlerMethod.class.getName());
         SHELL_CLASSNAME_MAP.put(GodzillaJakartaFilter.class.getSimpleName(), GodzillaJakartaFilter.class.getName());
         SHELL_CLASSNAME_MAP.put(GodzillaJakartaListener.class.getSimpleName(), GodzillaJakartaListener.class.getName());
+        SHELL_CLASSNAME_MAP.put(GodzillaValve.class.getSimpleName(), GodzillaValve.class.getName());
 
         Map<String, String> godzillaMap = new HashMap();
         godzillaMap.put(Constants.SHELL_FILTER, GodzillaFilter.class.getSimpleName());
@@ -42,6 +43,7 @@ public class ShellUtil {
         godzillaMap.put(Constants.SHELL_WF_HANDLERMETHOD, GodzillaWebFluxHandlerMethod.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_JAKARTA_FILTER, GodzillaJakartaFilter.class.getSimpleName());
         godzillaMap.put(Constants.SHELL_JAKARTA_LISTENER, GodzillaJakartaListener.class.getSimpleName());
+        godzillaMap.put(Constants.SHELL_VALVE, GodzillaValve.class.getSimpleName());
 
         toolMap.put(Constants.TOOL_GODZILLA, godzillaMap);
     }

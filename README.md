@@ -26,7 +26,7 @@
 | Resin     | SpringWebFlux | [Behinder](https://github.com/rebeyond/Behinder) (4.0.7)         | Filter        | BCEL       | 表达式语句封装 |
 | WebLogic  |               | [Godzilla](https://github.com/BeichenDream/Godzilla) (4.0.1)     | Interceptor   | BIGINTEGER |         |
 | Jetty     |               | [Neo-reGeorg](https://github.com/L-codes/Neo-reGeorg) (5.1.0)    | HandlerMethod | CLASS      |         |
-| WebSphere |               | [Suo5](https://github.com/zema1/suo5) (0.9.0)                    |               | JAR        |         |
+| WebSphere |               | [Suo5](https://github.com/zema1/suo5) (0.9.0)                    | TomcatValve   | JAR        |         |
 | Undertow  |               | Custom                                                           |               | JAR_AGENT  |         |
 | GlassFish |               |                                                                  |               | JS         |         |
 |           |               |                                                                  |               | JSP        |         |

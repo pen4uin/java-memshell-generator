@@ -51,6 +51,7 @@ public class ShellHelper implements IHelper {
         enumShellType.add(Constants.SHELL_INTERCEPTOR);
         enumShellType.add(Constants.SHELL_JAKARTA_LISTENER);
         enumShellType.add(Constants.SHELL_JAKARTA_FILTER);
+        enumShellType.add(Constants.SHELL_VALVE);
         shell_type.setEnumValue(enumShellType);
 
         shell_type.setDefaultValue("Listener");

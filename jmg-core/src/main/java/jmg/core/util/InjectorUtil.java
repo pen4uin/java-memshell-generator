@@ -56,11 +56,13 @@ public class InjectorUtil {
 
         INJECTOR_CLASSNAME_MAP.put("TomcatListenerInjector", TomcatListenerInjectorTpl.class.getName());
         INJECTOR_CLASSNAME_MAP.put("TomcatFilterInjector", TomcatFilterInjectorTpl.class.getName());
+        INJECTOR_CLASSNAME_MAP.put("TomcatValveInjector",TomcatValveInjectorTpl.class.getName());
         Map<String, String> tomcatMap = new HashMap();
         tomcatMap.put(Constants.SHELL_LISTENER, "TomcatListenerInjector");
         tomcatMap.put(Constants.SHELL_FILTER, "TomcatFilterInjector");
         tomcatMap.put(Constants.SHELL_JAKARTA_LISTENER, "TomcatListenerInjector");
         tomcatMap.put(Constants.SHELL_JAKARTA_FILTER, "TomcatFilterInjector");
+        tomcatMap.put(Constants.SHELL_VALVE,"TomcatValveInjector");
         classMap.put(Constants.SERVER_TOMCAT, tomcatMap);
 
 

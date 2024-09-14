@@ -2,7 +2,7 @@ package jmg.core.config;
 
 public class Constants {
 
-    public static final String JMG_VERSION = "1.0.8";
+    public static final String JMG_VERSION = "1.0.8_240914";
 
     public static final String JMG_NAME = "java-memshell-generator";
     public static final String JMG_DESCRIPTION = "Java 内存马生成器";

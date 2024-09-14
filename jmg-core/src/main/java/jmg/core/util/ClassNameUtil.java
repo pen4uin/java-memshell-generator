@@ -63,6 +63,9 @@ public class ClassNameUtil {
         if (shellType.contains(Constants.SHELL_LISTENER)){
             return PackageNameUtil.getRandomPackageName() + "." + ClassNameUtil.getClassPrefixName() + CommonUtil.generateRandomString()  + "Listener";
         }
+        if (shellType.contains(Constants.SHELL_VALVE)){
+            return PackageNameUtil.getRandomPackageName() + "." + ClassNameUtil.getClassPrefixName() + CommonUtil.generateRandomString()  + "Valve";
+        }
         if (shellType.contains(Constants.SHELL_INTERCEPTOR)){
             return PackageNameUtil.getRandomPackageName() + "." + ClassNameUtil.getClassPrefixName() + CommonUtil.generateRandomString()  + "Interceptor";
         }
