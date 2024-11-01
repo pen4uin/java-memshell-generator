@@ -56,7 +56,7 @@ public class Constants {
 
     public static final String TOOL_CUSTOM = "Custom";
 
-    public static final String TOOL_NEOREGEORG = "Neo-reGeorg";
+    public static final String TOOL_NEOREGEORG = "NeoreGeorg";
     public static final String TOOL_SUO5 = "Suo5";
 
     public static final String EXPR_EL = "EL";
