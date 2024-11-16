@@ -154,7 +154,6 @@ public class TomcatValveInjectorTpl {
 
     public void injectValve(Object context, Object valve) throws Exception {
         if (isInjected(context, valve.getClass().getName())) {
-            System.out.println(valve.getClass().getName() + "exist, skipping.");
             return;
         }
         try {
