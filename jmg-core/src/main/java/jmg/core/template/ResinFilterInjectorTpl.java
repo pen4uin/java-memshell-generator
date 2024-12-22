@@ -57,7 +57,7 @@ public class ResinFilterInjectorTpl {
                 invokeMethod(filterMappingImpl, "setFilterName", new Class[]{String.class}, new Object[]{getFilterName(filterClassName)});
                 invokeMethod(filterMappingImpl, "setFilterClass", new Class[]{String.class}, new Object[]{filterClassName});
                 Object urlPattern = invokeMethod(filterMappingImpl, "createUrlPattern");
-                invokeMethod(urlPattern, "addText", new Class[]{String.class}, new Object[]{urlPattern});
+                invokeMethod(urlPattern, "addText", new Class[]{String.class}, new Object[]{getUrlPattern()});
                 invokeMethod(urlPattern, "init");
                 invokeMethod(context, "addFilterMapping", new Class[]{filterMappingClass}, new Object[]{filterMappingImpl});
                 invokeMethod(context, "clearCache");
