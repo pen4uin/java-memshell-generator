@@ -4,7 +4,7 @@
     <parent>
         <groupId>jmg</groupId>
         <artifactId>java-memshell-generator</artifactId>
-        <version>1.0.8</version>
+        <version>1.0.9</version>
     </parent>
     <artifactId>jmg-suo5</artifactId>
 

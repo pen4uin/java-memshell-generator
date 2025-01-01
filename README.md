@@ -9,7 +9,7 @@
   <div align="center">一款支持高度自定义的 Java 内存马生成工具</div>
 </p>
 
-<img src="./jmg-docs/img/gui.png" width="900px" />
+<img src="./jmg-docs/img/gui_250101.png" width="900px" />
 
 <br>
 
@@ -48,26 +48,26 @@ mvn package assembly:single
 **图形化**
 
 ```shell
-java -jar ./releases/jmg-gui-1.0.8.jar
+java -jar ./releases/jmg-gui-1.0.9.jar
 ```
 
 **命令行**
 
 ```shell
-java -jar ./releases/jmg-cli-1.0.8.jar
+java -jar ./releases/jmg-cli-1.0.9.jar
 ```
 
 **Woodpecker 插件**
 
-将 jmg-woodpecker-1.0.8.jar 添加到 woodpecker 插件目录
+将 jmg-woodpecker-1.0.9.jar 添加到 woodpecker 插件目录
 
 
 **第三方库 (Maven)**
 
-1.将 jmg-sdk-1.0.8.jar 安装到本地 maven 仓库
+1.将 jmg-sdk-1.0.9.jar 安装到本地 maven 仓库
 
 ```shell
-mvn install:install-file -Dfile=./releases/jmg-sdk-1.0.8.jar -DgroupId=jmg -DartifactId=jmg-sdk -Dversion=1.0.8 -Dpackaging=jar
+mvn install:install-file -Dfile=./releases/jmg-sdk-1.0.9.jar -DgroupId=jmg -DartifactId=jmg-sdk -Dversion=1.0.9 -Dpackaging=jar
 ```
 
 2.添加为依赖
@@ -76,7 +76,7 @@ mvn install:install-file -Dfile=./releases/jmg-sdk-1.0.8.jar -DgroupId=jmg -Dart
 <dependency>
     <groupId>jmg</groupId>
     <artifactId>jmg-sdk</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
 </dependency>
 ```
 

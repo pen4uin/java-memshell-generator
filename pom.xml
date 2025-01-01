@@ -5,7 +5,7 @@
     <groupId>jmg</groupId>
     <artifactId>java-memshell-generator</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <modules>
         <module>jmg-antsword</module>
         <module>jmg-behinder</module>
