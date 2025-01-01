@@ -36,6 +36,10 @@ public class ShellHelper implements IHelper {
         enumServerType.add(Constants.SERVER_UNDERTOW);
         enumServerType.add(Constants.SERVER_GLASSFISH);
         enumServerType.add(Constants.SERVER_JBOSS);
+        enumServerType.add(Constants.SERVER_TONGWEB);
+        enumServerType.add(Constants.SERVER_APUSIC);
+        enumServerType.add(Constants.SERVER_BES);
+        enumServerType.add(Constants.SERVER_INFORSUITE);
         server_type.setEnumValue(enumServerType);
         server_type.setDefaultValue(Constants.SERVER_TOMCAT);
         server_type.setRequired(true);

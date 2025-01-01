@@ -27,7 +27,11 @@ public class Console {
             Constants.SERVER_WEBSPHERE,
             Constants.SERVER_UNDERTOW,
             Constants.SERVER_GLASSFISH,
-            Constants.SERVER_JBOSS);
+            Constants.SERVER_JBOSS,
+            Constants.SERVER_TONGWEB,
+            Constants.SERVER_APUSIC,
+            Constants.SERVER_BES,
+            Constants.SERVER_INFORSUITE);
     private static final List<String> TOOL_TYPES = Arrays.asList(
             Constants.TOOL_GODZILLA,
             Constants.TOOL_BEHINDER,

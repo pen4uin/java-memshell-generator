@@ -31,6 +31,32 @@ public class InjectorUtil {
 
     static {
 
+        INJECTOR_CLASSNAME_MAP.put("ApusicListenerInjector", ApusicListenerInjectorTpl.class.getName());
+        INJECTOR_CLASSNAME_MAP.put("ApusicFilterInjector", ApusicFilterInjectorTpl.class.getName());
+        Map<String, String> apusicMap = new HashMap();
+        apusicMap.put(Constants.SHELL_LISTENER, "ApusicListenerInjector");
+        apusicMap.put(Constants.SHELL_FILTER, "ApusicFilterInjector");
+        classMap.put(Constants.SERVER_APUSIC, apusicMap);
+
+        INJECTOR_CLASSNAME_MAP.put("BESListenerInjector", BESListenerInjectorTpl.class.getName());
+        INJECTOR_CLASSNAME_MAP.put("BESFilterInjector", BESFilterInjectorTpl.class.getName());
+        Map<String, String> besMap = new HashMap();
+        besMap.put(Constants.SHELL_LISTENER, "BESListenerInjector");
+        besMap.put(Constants.SHELL_FILTER, "BESFilterInjector");
+        classMap.put(Constants.SERVER_BES, besMap);
+
+        INJECTOR_CLASSNAME_MAP.put("InforSuiteListenerInjector", InforSuiteListenerInjectorTpl.class.getName());
+        INJECTOR_CLASSNAME_MAP.put("InforSuiteFilterInjector", InforSuiteFilterInjectorTpl.class.getName());
+        Map<String, String> inforsuiteMap = new HashMap();
+        inforsuiteMap.put(Constants.SHELL_LISTENER, "InforSuiteListenerInjector");
+        inforsuiteMap.put(Constants.SHELL_FILTER, "InforSuiteFilterInjector");
+        classMap.put(Constants.SERVER_INFORSUITE, inforsuiteMap);
+
+        INJECTOR_CLASSNAME_MAP.put("TongWebListenerInjector", TongWebListenerInjectorTpl.class.getName());
+        Map<String, String> tongwebMap = new HashMap();
+        tongwebMap.put(Constants.SHELL_LISTENER, "TongWebListenerInjector");
+        classMap.put(Constants.SERVER_TONGWEB, tongwebMap);
+
 
         INJECTOR_CLASSNAME_MAP.put("GlassfishListenerInjector", GlassFishListenerInjectorTpl.class.getName());
         INJECTOR_CLASSNAME_MAP.put("GlassfishFilterInjector", GlassFishFilterInjectorTpl.class.getName());
@@ -56,13 +82,13 @@ public class InjectorUtil {
 
         INJECTOR_CLASSNAME_MAP.put("TomcatListenerInjector", TomcatListenerInjectorTpl.class.getName());
         INJECTOR_CLASSNAME_MAP.put("TomcatFilterInjector", TomcatFilterInjectorTpl.class.getName());
-        INJECTOR_CLASSNAME_MAP.put("TomcatValveInjector",TomcatValveInjectorTpl.class.getName());
+        INJECTOR_CLASSNAME_MAP.put("TomcatValveInjector", TomcatValveInjectorTpl.class.getName());
         Map<String, String> tomcatMap = new HashMap();
         tomcatMap.put(Constants.SHELL_LISTENER, "TomcatListenerInjector");
         tomcatMap.put(Constants.SHELL_FILTER, "TomcatFilterInjector");
         tomcatMap.put(Constants.SHELL_JAKARTA_LISTENER, "TomcatListenerInjector");
         tomcatMap.put(Constants.SHELL_JAKARTA_FILTER, "TomcatFilterInjector");
-        tomcatMap.put(Constants.SHELL_VALVE,"TomcatValveInjector");
+        tomcatMap.put(Constants.SHELL_VALVE, "TomcatValveInjector");
         classMap.put(Constants.SERVER_TOMCAT, tomcatMap);
 
 

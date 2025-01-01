@@ -112,7 +112,8 @@ public class jMGForm {
 
         ArrayList<String> servletApiServerBox = new ArrayList<>(Arrays.asList(
                 Constants.SERVER_TOMCAT, Constants.SERVER_RESIN, Constants.SERVER_WEBLOGIC, Constants.SERVER_WEBSPHERE,
-                Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS
+                Constants.SERVER_JETTY, Constants.SERVER_UNDERTOW, Constants.SERVER_GLASSFISH, Constants.SERVER_JBOSS,
+                Constants.SERVER_TONGWEB, Constants.SERVER_APUSIC, Constants.SERVER_BES, Constants.SERVER_INFORSUITE
         ));
 
         ArrayList<String> interceptorServerBox = new ArrayList<>(Arrays.asList(Constants.SERVER_SPRING_MVC));

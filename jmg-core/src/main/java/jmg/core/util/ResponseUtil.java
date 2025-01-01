@@ -17,6 +17,10 @@ public class ResponseUtil {
         METHOD_BODY_MAP.put("jetty", getJettyMethodBody());
         METHOD_BODY_MAP.put("websphere", getWebsphereMethodBody());
         METHOD_BODY_MAP.put("undertow", getUndertowMethodBody());
+        METHOD_BODY_MAP.put("inforsuite", getCommonMethodBody());
+        METHOD_BODY_MAP.put("bes", getCommonMethodBody());
+        METHOD_BODY_MAP.put("tongweb", getTongwebMethodBody());
+        METHOD_BODY_MAP.put("apusic", getApusicMethodBody());
     }
 
     public static String getMethodBody(String serverType) {
@@ -73,4 +77,24 @@ public class ResponseUtil {
                 "return response;}";
 
     }
+
+    private static String getTongwebMethodBody() {
+        return "{javax.servlet.http.HttpServletResponse response = null;" +
+                "        try {" +
+                "            response = (javax.servlet.http.HttpServletResponse) getFV(getFV($1, \"request\"), \"response\");" +
+                "        } catch (Exception ex) {" +
+                "            try {" +
+                "                response = (javax.servlet.http.HttpServletResponse) getFV($1, \"response\");" +
+                "            } catch (Exception ex1) {" +
+                "            }" +
+                "        }\n" +
+                "        return response;}";
+    }
+
+    private static String getApusicMethodBody() {
+        return "{javax.servlet.http.HttpServletResponse response;" +
+                "        response = (javax.servlet.http.HttpServletResponse) getFV(getFV($1, \"http\"),\"response\");" +
+                "        return response;}";
+    }
+
 }
