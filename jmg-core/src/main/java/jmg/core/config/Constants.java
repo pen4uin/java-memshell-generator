@@ -24,7 +24,7 @@ public class Constants {
 
     public static final String SERVER_TONGWEB = "Tongweb";
     public static final String SERVER_APUSIC = "Apusic";
-    public static final String SERVER_INFORSUITE = "Inforsuite";
+    public static final String SERVER_INFORSUITE = "InforSuite";
     public static final String SERVER_BES = "BES";
 
 
