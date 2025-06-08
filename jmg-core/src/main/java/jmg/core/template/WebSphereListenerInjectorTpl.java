@@ -64,12 +64,17 @@ public class WebSphereListenerInjectorTpl {
         return contexts;
     }
 
-    private Object getListener(Object context) {
-        Object listener = null;
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        if (classLoader == null) {
-            classLoader = context.getClass().getClassLoader();
+    private ClassLoader getWebAppClassLoader(Object context) throws Exception {
+        try {
+            return ((ClassLoader) invokeMethod(context, "getClassLoader", null, null));
+        } catch (Exception e) {
+            return ((ClassLoader) getFV(context, "loader"));
         }
+    }
+
+    private Object getListener(Object context) throws Exception {
+        Object listener = null;
+        ClassLoader classLoader = getWebAppClassLoader(context);
         try {
             listener = classLoader.loadClass(getClassName()).newInstance();
         } catch (Exception e) {
@@ -136,5 +141,47 @@ public class WebSphereListenerInjectorTpl {
         }catch (Exception ignored){
         }
         return null;
+    }
+
+    public static synchronized Object invokeMethod(final Object obj, final String methodName, Class[] paramClazz, Object[] param) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class clazz = (obj instanceof Class) ? (Class) obj : obj.getClass();
+        Method method = null;
+
+        Class tempClass = clazz;
+        while (method == null && tempClass != null) {
+            try {
+                if (paramClazz == null) {
+                    // Get all declared methods of the class
+                    Method[] methods = tempClass.getDeclaredMethods();
+                    for (int i = 0; i < methods.length; i++) {
+                        if (methods[i].getName().equals(methodName) && methods[i].getParameterTypes().length == 0) {
+                            method = methods[i];
+                            break;
+                        }
+                    }
+                } else {
+                    method = tempClass.getDeclaredMethod(methodName, paramClazz);
+                }
+            } catch (NoSuchMethodException e) {
+                tempClass = tempClass.getSuperclass();
+            }
+        }
+        if (method == null) {
+            throw new NoSuchMethodException(methodName);
+        }
+        method.setAccessible(true);
+        if (obj instanceof Class) {
+            try {
+                return method.invoke(null, param);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        } else {
+            try {
+                return method.invoke(obj, param);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
     }
 }

@@ -95,10 +95,7 @@ public class TomcatValveInjectorTpl {
 
     private Object getValve(Object context) {
         Object valve = null;
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        if (classLoader == null) {
-            classLoader = context.getClass().getClassLoader();
-        }
+        ClassLoader classLoader = context.getClass().getClassLoader();
         try {
             valve = classLoader.loadClass(getClassName()).newInstance();
         } catch (Exception e) {

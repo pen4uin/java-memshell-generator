@@ -53,13 +53,18 @@ public class UndertowListenerInjectorTpl {
         return contexts;
     }
 
-
-    private Object getListener(Object context) {
-        Object listener = null;
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        if (classLoader == null) {
-            classLoader = context.getClass().getClassLoader();
+    private ClassLoader getWebAppClassLoader(Object context) throws Exception {
+        try {
+            return ((ClassLoader) invokeMethod(context, "getClassLoader", null, null));
+        } catch (Exception e) {
+            Object deploymentInfo = getFV(context, "deploymentInfo");
+            return ((ClassLoader) invokeMethod(deploymentInfo, "getClassLoader", null, null));
         }
+    }
+
+    private Object getListener(Object context) throws Exception {
+        Object listener = null;
+        ClassLoader classLoader = getWebAppClassLoader(context);
         try {
             listener = classLoader.loadClass(getClassName()).newInstance();
         } catch (Exception e) {
