@@ -410,6 +410,26 @@ public class AbstractConfig {
 
     private String jarClassName;
 
+    public byte[] getBytesInLoader() {
+        return bytesInLoader;
+    }
+
+    public void setBytesInLoader(byte[] bytesInLoader) {
+        this.bytesInLoader = bytesInLoader;
+    }
+
+    private byte[] bytesInLoader;
+
+    public String getClassNameInLoader() {
+        return classNameInLoader;
+    }
+
+    public void setClassNameInLoader(String classNameInLoader) {
+        this.classNameInLoader = classNameInLoader;
+    }
+
+    private String classNameInLoader;
+
     public void build() {
         // 检查 serverType、modelType、formatType  是否已设置
         if (this.toolType == null || this.serverType == null || this.shellType == null || this.outputFormat == null || this.gadgetType == null) {
@@ -429,8 +449,6 @@ public class AbstractConfig {
             this.setShellClassName(ClassNameUtil.getRandomShellClassName(this.getShellType()));
         if (this.getShellSimpleClassName() == null)
             this.setShellSimpleClassName(CommonUtil.getSimpleName(this.getShellClassName()));
-        if (this.getOutputFormat().contains(Constants.FORMAT_BCEL))
-            this.setLoaderClassName(ClassNameUtil.getRandomLoaderClassName());
         this.setSavePath(CommonUtil.getFileOutputPath(this.getOutputFormat(), this.getInjectorSimpleClassName(), this.getSavePath()));
     }
 }

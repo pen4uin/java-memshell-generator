@@ -17,9 +17,9 @@ public class BCELoaderGenerator {
             ctClass.setName(config.getLoaderClassName());
             ctClass.getClassFile().setVersionToJava5();
             CtMethod getClassName = ctClass.getDeclaredMethod("getClassName");
-            getClassName.setBody(String.format("{return \"%s\";}", config.getInjectorClassName()));
+            getClassName.setBody(String.format("{return \"%s\";}", config.getClassNameInLoader()));
             CtMethod getBase64String = ctClass.getDeclaredMethod("getBase64String");
-            String base64ClassString = encodeToBase64(config.getInjectorBytes()).replace(System.lineSeparator(), "");
+            String base64ClassString = encodeToBase64(config.getBytesInLoader()).replaceAll("[\\s*\t\n\r]", "");
             String[] parts = splitChunks(base64ClassString, 40000);
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < parts.length; i++) {

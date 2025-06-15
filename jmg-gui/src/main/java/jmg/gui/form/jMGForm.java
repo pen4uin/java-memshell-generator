@@ -382,8 +382,6 @@ public class jMGForm {
                 config.setUrlPattern("/*");
             }
         }
-        if (config.getOutputFormat().contains(Constants.FORMAT_BCEL))
-            config.setLoaderClassName(ClassNameUtil.getRandomLoaderClassName());
         config.setInjectorSimpleClassName(CommonUtil.getSimpleName(config.getInjectorClassName()));
 
     }
