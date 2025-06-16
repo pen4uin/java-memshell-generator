@@ -62,14 +62,19 @@ public class WildFlyFilterInjectorTpl {
         return contexts;
     }
 
+    private ClassLoader getWebAppClassLoader(Object context) throws Exception {
+        try {
+            return ((ClassLoader) invokeMethod(context, "getClassLoader", null, null));
+        } catch (Exception e) {
+            Object deploymentInfo = getFV(context, "deploymentInfo");
+            return ((ClassLoader) invokeMethod(deploymentInfo, "getClassLoader", null, null));
+        }
+    }
 
-    private Object getFilter(Object context) {
+    private Object getFilter(Object context) throws Exception {
 
         Object filter = null;
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        if (classLoader == null) {
-            classLoader = context.getClass().getClassLoader();
-        }
+        ClassLoader classLoader = getWebAppClassLoader(context);
         try {
             filter = classLoader.loadClass(getClassName()).newInstance();
         } catch (Exception e) {
